@@ -1,0 +1,61 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: "Cygre";
+}
+
+nav {
+  background: #0d1126;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.element-left,
+.element-right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 2em;
+}
+
+nav img {
+  width: 5em;
+  filter: invert();
+}
+
+nav a {
+  color: #9ba6de;
+  font-weight: 600;
+  margin: 0 1em;
+}
+
+nav a:hover {
+  color: #fff;
+}
+
+ul {
+  margin-left: 2em;
+}
+
+.profil {
+  background: #fff;
+  padding: 19px;
+  border-radius: 34px;
+}
+
+#search {
+  background: #383d57;
+  border-radius: 8px;
+  color: #fff;
+  border: none;
+  padding: 8px;
+  margin-right: 1em;
+}
+
+::placeholder {
+  color: #c8d0ff;
+}
