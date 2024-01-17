@@ -42,9 +42,9 @@ ul {
 }
 
 .profil {
-  background: #fff;
-  padding: 19px;
-  border-radius: 34px;
+  font-size: 36px;
+  filter: invert();
+  display: flex;
 }
 
 #search {
@@ -58,4 +58,15 @@ ul {
 
 ::placeholder {
   color: #c8d0ff;
+}
+
+/* Annonce Film */
+
+.breaking-bad {
+  overflow: hidden;
+  height: 32em;
+}
+
+.breaking-bad img {
+  width: 100%;
 }
