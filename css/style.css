@@ -7,6 +7,10 @@
   font-family: "Cygre";
 }
 
+body {
+  background: #2d303d;
+}
+
 nav {
   background: #0d1126;
   display: flex;
