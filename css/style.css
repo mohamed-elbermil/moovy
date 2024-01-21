@@ -56,8 +56,15 @@ ul {
   border-radius: 8px;
   color: #fff;
   border: none;
-  padding: 8px;
+  padding: 8px 11px;
   margin-right: 1em;
+  width: 14em;
+  transition-duration: .4s;
+}
+
+#search:focus{
+  width: 23em;
+
 }
 
 ::placeholder {
