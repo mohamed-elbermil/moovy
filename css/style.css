@@ -59,12 +59,11 @@ ul {
   padding: 8px 11px;
   margin-right: 1em;
   width: 14em;
-  transition-duration: .4s;
+  transition-duration: 0.4s;
 }
 
-#search:focus{
+#search:focus {
   width: 23em;
-
 }
 
 ::placeholder {
@@ -80,4 +79,13 @@ ul {
 
 .breaking-bad img {
   width: 100%;
+}
+
+.cover-movie img {
+  width: 11em;
+  border-radius: 7px;
+}
+
+.cover-movie {
+  margin: 2em;
 }
