@@ -120,11 +120,23 @@ ul {
 .cover-movie img {
   width: 11em;
   border-radius: 7px;
+  cursor: pointer;
+}
+
+.cover-movie img:hover {
+  filter: brightness(0.5);
 }
 
 .cover-movie {
   position: relative;
   margin: 2em;
+}
+
+.cover-movie p {
+  color: #fff;
+  font-weight: 700;
+  text-align: center;
+  margin-top: 8px;
 }
 
 .date {
