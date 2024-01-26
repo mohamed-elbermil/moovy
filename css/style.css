@@ -94,6 +94,13 @@ ul {
 
 #search:focus {
   width: 23em;
+  background: #6871a1;
+  box-shadow: 0 0 41px #354bbb;
+}
+
+#search:hover {
+  background: #6871a1;
+  box-shadow: 0 0 41px #354bbb;
 }
 
 ::placeholder {
