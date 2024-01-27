@@ -4,24 +4,14 @@
   list-style-type: none;
   box-sizing: border-box;
   text-decoration: none;
-  font-family: "Cygre";
+  font-family: 'Roboto', sans-serif;
 }
 
 body {
   background: #2d303d;
 }
 
-@keyframes wheelHueColor {
-  0% {
-    background: linear-gradient(45deg, #2e3b80, #000000);
-  }
-  50% {
-    background: linear-gradient(45deg, black, #2e3b80);
-  }
-  100% {
-    background: linear-gradient(45deg, #2e3b80, black);
-  }
-}
+
 
 nav {
   /* background: #0d1126; */
@@ -65,6 +55,7 @@ nav a {
   color: #9ba6de;
   font-weight: 600;
   margin: 0 1em;
+  transition-duration: .4s;
 }
 
 nav a:hover {
