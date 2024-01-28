@@ -98,15 +98,70 @@ ul {
   color: #c8d0ff;
 }
 
+.bloc-infos {
+  position: absolute;
+  bottom: 6em;
+  left: 2em;
+  color: #fff;
+}
+
+.titre-movie{
+  font-size: 4em;
+}
+
+.propriete-movie{
+  margin: 1em 0;
+}
+
+.note{
+  color: #35d735;
+}
+
+.duree{
+  border: solid #fff 1px;
+  padding: 2px 9px;
+  border-radius: 34px;
+}
+
+.btn-watch {
+  background: #1d2345;
+  width: 8em;
+  text-align: center;
+  padding: 9px 0;
+  margin: 1em 0;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 22px;
+}
+
+.btn-watch:hover{
+  animation: btnColor infinite 0.9s;
+}
+
+@keyframes btnColor {
+  0%{    background: #1d2345;}
+  50%{    background: #374593;}
+  100%{    background: #1d2345;}
+}
+
 /* Annonce Film */
 
 .breaking-bad {
   overflow: hidden;
   height: 32em;
+  position: relative;
 }
 
 .breaking-bad img {
   width: 100%;
+  filter: brightness(0.7);
+  animation: breakingBad 6s;
+}
+
+@keyframes breakingBad {
+  0%{width: 131%;}
+  100%{width: 100%;}
+  
 }
 
 #movies {
