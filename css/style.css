@@ -100,7 +100,7 @@ ul {
 
 .bloc-infos {
   position: absolute;
-  bottom: 6em;
+  bottom: 2em;
   left: 2em;
   color: #fff;
 }
@@ -174,10 +174,11 @@ ul {
   width: 11em;
   border-radius: 7px;
   cursor: pointer;
+  transition-duration: .4s;
 }
 
 .cover-movie img:hover {
-  filter: brightness(0.5);
+  filter: brightness(1.3);
 }
 
 .cover-movie {
