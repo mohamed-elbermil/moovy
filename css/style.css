@@ -132,17 +132,14 @@ ul {
   border-radius: 10px;
   cursor: pointer;
   font-size: 22px;
+  transition-duration: .4s;
 }
 
 .btn-watch:hover{
-  animation: btnColor infinite 0.9s;
+  background: #333d7a;
 }
 
-@keyframes btnColor {
-  0%{    background: #1d2345;}
-  50%{    background: #374593;}
-  100%{    background: #1d2345;}
-}
+
 
 /* Annonce Film */
 
