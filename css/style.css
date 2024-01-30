@@ -182,11 +182,15 @@ ul {
   margin: 2em;
 }
 
-.cover-movie p {
+.titre-movie-2 {
   color: #fff;
-  font-weight: 700;
-  text-align: center;
   margin-top: 8px;
+  font-size: 23px;
+}
+
+.genre-movie {
+  font-size: 16px;
+  color: #828282;
 }
 
 .date {
@@ -198,6 +202,19 @@ ul {
   border-radius: 6px;
   top: 6px;
   left: 6px;
+}
+
+.note-movie {
+  background: #ff8331;
+  z-index: 2;
+  position: absolute;
+  bottom: 5em;
+  left: 7px;
+  padding: 3px 9px;
+  border-radius: 5px;
+  color: #fff;
+  font-weight: 500;
+  font-size: 13px;
 }
 
 /* Footer */
