@@ -13,6 +13,9 @@ body {
 
 nav {
   /* background: #0d1126; */
+  position: fixed;
+  z-index: 99;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -47,6 +50,11 @@ nav {
 nav img {
   width: 5em;
   filter: invert();
+  transition-duration: 0.4s;
+}
+
+nav img:hover {
+  transform: translate(0, -4px);
 }
 
 nav a {
