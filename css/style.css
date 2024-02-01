@@ -153,7 +153,7 @@ ul {
   position: relative;
 }
 
-.breaking-bad img {
+#banner-wall {
   width: 100%;
   filter: brightness(0.7);
   animation: breakingBad 6s;
@@ -188,6 +188,14 @@ ul {
 .cover-movie {
   position: relative;
   margin: 2em;
+}
+
+#cover-banner {
+  width: 9em;
+  position: absolute;
+  z-index: 9;
+  bottom: 2em;
+  right: 21em;
 }
 
 .titre-movie-2 {
