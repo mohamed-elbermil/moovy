@@ -191,11 +191,25 @@ ul {
 }
 
 #cover-banner {
+  opacity: 0;
   width: 9em;
   position: absolute;
   z-index: 9;
   bottom: 2em;
   right: 21em;
+  border: solid 4px #08786e;
+  animation: apparition 3s ease-in-out;
+  animation-delay: 6s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes apparition {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .titre-movie-2 {
