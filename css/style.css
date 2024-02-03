@@ -13,7 +13,7 @@ body {
 
 nav {
   /* background: #0d1126; */
-  position: fixed;
+  /* position: fixed; */
   z-index: 99;
   width: 100%;
   display: flex;
@@ -139,6 +139,19 @@ ul {
   cursor: pointer;
   font-size: 22px;
   transition-duration: 0.4s;
+  display: flex;
+  justify-content: center;
+}
+
+.btn-watch i {
+  transform: translate(-30px, 3px);
+  opacity: 0;
+  transition-duration: 0.4s;
+}
+
+.btn-watch:hover i {
+  transform: translate(-12px, 3px);
+  opacity: 1;
 }
 
 .btn-watch:hover {
