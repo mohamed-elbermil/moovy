@@ -62,6 +62,8 @@ nav a {
   font-weight: 600;
   margin: 0 1em;
   transition-duration: 0.4s;
+  position: relative;
+  z-index: 38;
 }
 
 nav a:hover {
@@ -71,6 +73,34 @@ nav a:hover {
 ul {
   margin-left: 2em;
 }
+
+.genre-nav {
+  opacity: 0;
+  color: #c8d0ff;
+  position: absolute;
+  z-index: 0;
+  left: 23em;
+  background: #3c4788;
+  border-radius: 0 0 9px 9px;
+  transform: translate(0px, -40px);
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+.genre-nav p {
+  font-size: 18px;
+  padding: 9px 18px;
+  /* z-index: 4; */
+  position: relative;
+}
+
+.genre-nav p:hover {
+  background: #1f2758;
+}
+/* #genre:hover + .genre-nav {
+  opacity: 1;
+  transform: translate(0px, 20px);
+} */
 
 .profil {
   font-size: 36px;
@@ -106,7 +136,7 @@ ul {
 
 .bloc-infos {
   position: absolute;
-  bottom: 2em;
+  bottom: 8em;
   left: 2em;
   color: #fff;
 }
@@ -163,13 +193,16 @@ ul {
 .breaking-bad {
   overflow: hidden;
   height: 32em;
-  position: relative;
+  /* position: relative; */
+  z-index: -2;
 }
 
 #banner-wall {
   width: 100%;
   filter: brightness(0.7);
   animation: breakingBad 6s;
+  position: relative;
+  z-index: -2;
 }
 
 @keyframes breakingBad {
@@ -208,7 +241,7 @@ ul {
   width: 9em;
   position: absolute;
   z-index: 9;
-  bottom: 2em;
+  bottom: 9em;
   right: 21em;
   border: solid 4px #08786e;
   animation: apparition 3s ease-in-out;
@@ -265,4 +298,7 @@ footer {
   background: black;
   color: #fff;
   padding: 2em;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
 }
