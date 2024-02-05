@@ -14,3 +14,19 @@ genre.addEventListener("click", function () {
     genreNav.style.opacity = "0";
   }
 });
+
+const coverBanner = document.getElementById("cover-banner");
+const descriptionCover = document.querySelector(".description-cover");
+const bannerWall = document.getElementById("banner-wall");
+const coverText = document.querySelector(".cover-text");
+
+coverBanner.addEventListener("click", function () {
+  if (coverBanner.classList.contains("active-banner")) {
+    coverBanner.style.width = "23em";
+    descriptionCover.style.top = "8em";
+    descriptionCover.style.left = "3em";
+    bannerWall.style.filter = "blur(32px)";
+    coverText.style.display = "block";
+  } else {
+  }
+});
