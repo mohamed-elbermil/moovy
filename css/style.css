@@ -246,8 +246,14 @@ ul {
   right: 21em;
   border: solid 4px #08786e;
   animation: apparition 3s ease-in-out;
-  animation-delay: 4s;
+  animation-delay: 2s;
   animation-fill-mode: forwards;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+#cover-banner:hover {
+  box-shadow: 11px 11px 0 #013c37;
 }
 
 .description-cover {
@@ -255,10 +261,12 @@ ul {
   position: absolute;
   top: 21em;
   right: 19em;
-  transition-duration: 0.6s;
+  transition-duration: 0.9s;
 }
 .cover-text {
   display: none;
+  margin-left: 2em;
+  font-size: 23px;
 }
 
 .active-banner {
