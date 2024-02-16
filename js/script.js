@@ -19,14 +19,20 @@ const coverBanner = document.getElementById("cover-banner");
 const descriptionCover = document.querySelector(".description-cover");
 const bannerWall = document.getElementById("banner-wall");
 const coverText = document.querySelector(".cover-text");
+let effetApplique = false;
 
 coverBanner.addEventListener("click", function () {
-  if (coverBanner.classList.contains("active-banner")) {
-    coverBanner.style.width = "23em";
-    descriptionCover.style.top = "8em";
-    descriptionCover.style.left = "3em";
+  if (!effetApplique) {
+    coverBanner.classList.add("effet-banner-image");
+    descriptionCover.classList.add("effet-description-cover");
     bannerWall.style.filter = "blur(32px)";
     coverText.style.display = "block";
+    effetApplique = true;
   } else {
+    coverBanner.classList.remove("effet-banner-image");
+    descriptionCover.classList.remove("effet-description-cover");
+    bannerWall.style.filter = "none"; // Remise à zéro du flou
+    coverText.style.display = "none"; // Remise à zéro de l'affichage du texte
+    effetApplique = false;
   }
 });
