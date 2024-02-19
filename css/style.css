@@ -355,3 +355,7 @@ footer a {
   color: #979797;
   margin: 4px 0;
 }
+
+footer a:hover {
+  color: #9da5d7;
+}
