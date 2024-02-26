@@ -154,7 +154,6 @@ $result = $bdd->query("SELECT * FROM description");
       <a href="#">Lorem ipsum</a>
       <a href="#">Lorem ipsum</a>
       <a href="#">Lorem ipsum</a>
-      <a href="#">Lorem ipsum</a>
 
     </div>
   </footer>
