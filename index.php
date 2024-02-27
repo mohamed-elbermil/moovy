@@ -10,6 +10,7 @@ $result = $bdd->query("SELECT * FROM description");
 // $description = $result->fetch(PDO::FETCH_OBJ);
 
 // echo $description->titre;
+
 ?>
 
 <!DOCTYPE html>
@@ -90,44 +91,20 @@ $result = $bdd->query("SELECT * FROM description");
   <main>
     <section id="movies">
       <!-- ----------- -->
-      <?php
-      while ($description = $result->fetch(PDO::FETCH_OBJ)) {
-      ?>
-        <p>
-          <?= $description->titre ?> </br>
-        </p>
-      <?php
-      }
-      ?>
+
+      <?php while ($description = $result->fetch(PDO::FETCH_OBJ)) { ?>
+        <?php //var_dump($description); 
+        ?>
+        <div class="cover-movie">
+          <div class="date"><?= $description->date ?></div>
+          <div class="note-movie"><?= $description->note ?>%</div>
+          <img src="<?= $description->images ?>" alt="<?= $description->titre ?>" />
+          <p class="titre-movie-2"><?= $description->titre ?></p>
+          <p class="genre-movie"><?= $description->genre ?></p>
+        </div>
+      <?php } ?>
 
 
-      <div class="cover-movie">
-        <div class="date">2001</div>
-        <div class="note-movie">30%</div>
-        <img src="./images/movie-1.jpg" alt="Films" />
-        <p class="titre-movie-2">
-          <?php $description->titre ?>
-
-        </p>
-        <p class="genre-movie">Action, Dramatique</p>
-      </div>
-      <!-- ------------- -->
-      <div class="cover-movie">
-        <div class="date">2001</div>
-        <div class="note-movie">30%</div>
-
-        <img src="./images/movie-1.jpg" alt="Films" />
-        <p class="titre-movie-2">Training Days</p>
-        <p class="genre-movie">Action, Dramatique</p>
-      </div>
-      <div class="cover-movie">
-        <div class="date">2001</div>
-        <div class="note-movie">30%</div>
-
-        <img src="./images/movie-1.jpg" alt="Films" />
-        <p class="titre-movie-2">Training Days</p>
-        <p class="genre-movie">Action, Dramatique</p>
-      </div>
     </section>
   </main>
   <footer>
@@ -162,5 +139,13 @@ $result = $bdd->query("SELECT * FROM description");
 <script src="./js/script.js"></script>
 
 
+<script>
+  let noteMovie = document.querySelector('.note-movie');
+  let noteValeur = parseFloat(noteMovie.textContent);
+
+  if (noteValeur > 50) {
+    noteMovie.classList.add('note-movie-good')
+  }
+</script>
 
 </html>

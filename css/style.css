@@ -330,6 +330,10 @@ ul {
   font-size: 13px;
 }
 
+.note-movie-good {
+  background: #3b993b;
+}
+
 /* Footer */
 footer {
   background: black;
