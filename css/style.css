@@ -221,10 +221,30 @@ ul {
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
+}
+
+.list-movies {
+  display: flex;
+  align-items: center;
+  transform: translate(10px, 0px);
+  animation: listMovies 14s ease-in-out infinite;
+}
+
+@keyframes listMovies {
+  0% {
+    transform: translate(10px, 0px);
+  }
+  50% {
+    transform: translate(-302px, 0px);
+  }
+  100% {
+    transform: translate(10px, 0px);
+  }
 }
 
 .cover-movie img {
-  width: 11em;
+  width: 15em;
   border-radius: 7px;
   cursor: pointer;
   transition-duration: 0.4s;

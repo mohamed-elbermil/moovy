@@ -91,18 +91,20 @@ $result = $bdd->query("SELECT * FROM description");
   <main>
     <section id="movies">
       <!-- ----------- -->
+      <div class="list-movies">
+        <?php while ($description = $result->fetch(PDO::FETCH_OBJ)) { ?>
+          <?php //var_dump($description); 
+          ?>
+          <div class="cover-movie">
+            <div class="date"><?= $description->date ?></div>
+            <div class="note-movie"><?= $description->note ?>%</div>
+            <img src="<?= $description->images ?>" alt="<?= $description->titre ?>" />
+            <p class="titre-movie-2"><?= $description->titre ?></p>
+            <p class="genre-movie"><?= $description->genre ?></p>
+          </div>
+        <?php } ?>
+      </div>
 
-      <?php while ($description = $result->fetch(PDO::FETCH_OBJ)) { ?>
-        <?php //var_dump($description); 
-        ?>
-        <div class="cover-movie">
-          <div class="date"><?= $description->date ?></div>
-          <div class="note-movie"><?= $description->note ?>%</div>
-          <img src="<?= $description->images ?>" alt="<?= $description->titre ?>" />
-          <p class="titre-movie-2"><?= $description->titre ?></p>
-          <p class="genre-movie"><?= $description->genre ?></p>
-        </div>
-      <?php } ?>
 
 
     </section>
