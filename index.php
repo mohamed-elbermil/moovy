@@ -96,6 +96,7 @@ $result = $bdd->query("SELECT * FROM description");
           <?php //var_dump($description); 
           ?>
           <div class="cover-movie">
+            <i class="fa-solid fa-play" class="play"></i>
             <div class="date"><?= $description->date ?></div>
             <div class="note-movie"><?= $description->note ?>%</div>
             <img src="<?= $description->images ?>" alt="<?= $description->titre ?>" />

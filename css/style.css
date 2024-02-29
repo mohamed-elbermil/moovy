@@ -228,7 +228,7 @@ ul {
   display: flex;
   align-items: center;
   transform: translate(10px, 0px);
-  animation: listMovies 14s ease-in-out infinite;
+  animation: listMovies 14s ease-in-out;
 }
 
 @keyframes listMovies {
@@ -250,13 +250,28 @@ ul {
   transition-duration: 0.4s;
 }
 
-.cover-movie img:hover {
+/* .cover-movie img:hover {
   filter: brightness(1.3);
-}
+} */
 
 .cover-movie {
   position: relative;
   margin: 2em;
+}
+
+.cover-movie i {
+  opacity: 0;
+  cursor: pointer;
+  font-size: 5em;
+  position: absolute;
+  top: 117px;
+  left: 93px;
+  color: #fff;
+  transition-duration: 0.4s;
+}
+
+.cover-movie:hover i {
+  opacity: 1;
 }
 
 #cover-banner {
