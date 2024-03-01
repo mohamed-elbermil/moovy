@@ -382,9 +382,11 @@ footer {
 .footer-bloc {
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
-footer span {
+#footer-name {
+  color: #fff;
   font-size: 21px;
   text-transform: capitalize;
 }

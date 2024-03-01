@@ -112,32 +112,11 @@ $result = $bdd->query("SELECT * FROM description");
   </main>
   <footer>
     <div class="footer-bloc">
-      <span>infos pratiques</span>
-      <a href="#">Lorem ipsum</a>
-      <a href="#">Lorem ipsum</a>
-      <a href="#">Lorem ipsum</a>
-      <a href="#">Lorem ipsum</a>
-      <a href="#">Lorem ipsum</a>
-    </div>
-    <div class="footer-bloc">
-      <span>à propos</span>
-      <a href="#">Lorem ipsum</a>
-      <a href="#">Lorem ipsum</a>
-      <a href="#">Lorem ipsum</a>
-      <a href="#">Lorem ipsum</a>
-      <a href="#">Lorem ipsum</a>
-    </div>
-    <div class="footer-bloc">
-      <span>newsletter</span>
-      <a href="#">Lorem ipsum</a>
-      <a href="#">Lorem ipsum</a>
-      <a href="#">Lorem ipsum</a>
-      <a href="#">Lorem ipsum</a>
-      <a href="#">Lorem ipsum</a>
+      <a href="https://www.linkedin.com/in/mohamed-el-bermil-b957861bb/" target="_blank" id="footer-name">Mohamed EL BERMIL</a>
+      <a href="https://soblim.com/" target="_blank">Agence SOBLIM</a>
 
     </div>
   </footer>
-  <span>Mohamed EL BERMIL</span>
 </body>
 <script src="./js/script.js"></script>
 
