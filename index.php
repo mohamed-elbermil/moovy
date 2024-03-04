@@ -113,7 +113,7 @@ $result = $bdd->query("SELECT * FROM description");
   <footer>
     <div class="footer-bloc">
       <a href="https://www.linkedin.com/in/mohamed-el-bermil-b957861bb/" target="_blank" id="footer-name">Mohamed EL BERMIL</a>
-      <a href="https://soblim.com/" target="_blank">Agence SOBLIM</a>
+      <a href="https://soblim.com/" target="_blank" id="soblim">Agence SOBLIM</a>
 
     </div>
   </footer>
