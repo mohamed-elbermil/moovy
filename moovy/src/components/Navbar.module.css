@@ -1,0 +1,25 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 15px 0;
+  background: black;
+  display: flex;
+  align-items: center;
+  color: #fff;
+}
+
+.navbar input,
+.navbar button {
+  padding: 9px 13px;
+}
+
+.navbar input {
+  background: #fff;
+  opacity: 27%;
+  border-radius: 44px;
+}
+
+.navbar button {
+  background: #fff;
+}

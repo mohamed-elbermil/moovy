@@ -1,0 +1,56 @@
+/* reset.css - reset CSS classique */
+
+/* Supprime les marges, paddings et bordures */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border: 0;
+}
+
+/* Met une hauteur de ligne uniforme */
+body {
+  line-height: 1;
+  font-family: sans-serif;
+  background: white;
+  color: black;
+}
+
+/* Supprime les listes */
+ol,
+ul {
+  list-style: none;
+}
+
+/* Supprime les citations */
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote::before,
+blockquote::after,
+q::before,
+q::after {
+  content: "";
+  content: none;
+}
+
+/* Supprime les décorations de liens */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Tables : supprime l'espacement par défaut */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* Supprime le focus outline par défaut (à gérer avec styles custom si besoin) */
+:focus {
+  outline: none;
+}
