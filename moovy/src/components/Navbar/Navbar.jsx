@@ -1,7 +1,7 @@
 import styles from "./Navbar.module.css";
 import Link from "next/link";
 import Image from "next/image"; /* Permet un chargement plus rapide et responsive */
-import Logo from "../assets/images/logo.svg";
+import Logo from "../../assets/images/logo.svg";
 
 export default function Navbar() {
   return (
