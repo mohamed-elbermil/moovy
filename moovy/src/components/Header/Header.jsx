@@ -1,3 +1,5 @@
+import Btn from '../Button/Button'
+
 export default function Header() {
     return(
         <div>
@@ -7,7 +9,7 @@ export default function Header() {
                 <p>Action</p> 
             </div>
             <p>Ceci est une description de film Dolor Lorem ipsum Dolor Lorem ipsum Dolor Lorem ipsum Dolor Lorem ipsum Dolor Lorem ipsum Dolor Lorem ipsum Dolor Lorem ipsum Dolor </p>
-            <button>Lecture</button>
+            <Btn variant='play'>Lecture</Btn>
         </div>
         
     )

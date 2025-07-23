@@ -1,5 +1,6 @@
 import styles from "./Navbar.module.css";
 import Link from "next/link";
+import Btn from "../Button/Button";
 import Image from "next/image"; /* Permet un chargement plus rapide et responsive */
 import Logo from "../../assets/images/logo.svg";
 
@@ -17,7 +18,7 @@ export default function Navbar() {
       </div>
       <div>
         <input type="search" name="" id="" />
-        <button>Connexion</button>
+        <Btn>Connexion</Btn>
       </div>
     </nav>
   );
