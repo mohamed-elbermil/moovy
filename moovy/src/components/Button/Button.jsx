@@ -1,7 +1,8 @@
 import React from "react"
 import styles from './Button.module.css'
+import Link from "next/link";
 
-const Btn = ({children, variant = "primary"}) => {
+const Btn = ({children, href , variant = "primary"}) => {
     let className = "";
 
     switch (variant) {
@@ -17,6 +18,14 @@ const Btn = ({children, variant = "primary"}) => {
         default:
             className = styles.btnPrimary
     }
+    /* Si href est défini, on retourne un lien */
+    if (href) {
+        return(
+            <Link className={className} href={href}>{children}</Link>
+        )
+    }
+
+    /* Sinon, on retourne un bouton */
     return (
     <button className={className}>{children}</button>)
 }
