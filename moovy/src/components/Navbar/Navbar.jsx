@@ -17,7 +17,7 @@ export default function Navbar() {
         <Link href="/">Séries</Link>
       </div>
       <div>
-        <input type="search" name="" id="" />
+        <input type="search" placeholder="Rechercher" />
         <Btn>Connexion</Btn>
       </div>
     </nav>
