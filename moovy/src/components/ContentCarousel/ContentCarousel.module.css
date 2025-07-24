@@ -1,3 +1,20 @@
+.carousel {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
 .poster {
     width: 10em;
+}
+
+.activeCard {
+    position: absolute;
+    display: none;
+}
+
+.movie:hover .activeCard {
+    display: block;
 }
