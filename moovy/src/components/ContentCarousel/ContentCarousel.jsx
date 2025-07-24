@@ -23,8 +23,12 @@ const ContentCarousel = ({movies}) => {
                                 .filter(Boolean)
                                 .join(',')}
                         </span>
-                        <p>{movie.title}</p>
-                        <p>{movie.overview}</p>
+                        <p className={styles.title}>{movie.title}</p>                  
+                        <p className={styles.overview}>
+                            {movie.overview.length > 273
+                            ? movie.overview.slice(0,270) + " ..."
+                            :movie.overview}
+                        </p>
                     </div>
                 </div>
             ))}
