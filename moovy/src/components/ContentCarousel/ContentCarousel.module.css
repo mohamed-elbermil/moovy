@@ -3,12 +3,12 @@
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    gap: 5px;
+    gap: 1em;
 }
 
 .carousel {
     position: relative;
-    margin: 2em 1em;
+    margin: 2em 3em;
     width: 100%;
 }
 
@@ -33,12 +33,24 @@
     display: none;
     width: 22em;
     height: 15em;
+    z-index: 4;
 }
 
 .title {
     font-size: 20px;
     font-weight: 600;
     white-space:nowrap;
+}
+
+.titleList {
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+    margin-bottom: 1em;
+}
+
+.titleList p {
+    color: #99aeffb0;
 }
 
 .overview {
@@ -61,10 +73,11 @@
 .arrowLeft {
     position: absolute;
     top: 50%;
-    left: 2em;
+    left: -22px;
     transform: translateY(-50%);
     transform: rotate(180deg);
     z-index: 10;
+    border: solid 4px #0d0c1f;
 }
 .arrowRight {
     position: absolute;
