@@ -15,11 +15,28 @@
 }
 
 .navbar input {
-  background: #fff;
-  opacity: 27%;
+  background: #ffffff57;
   border-radius: 44px;
+  padding-left: 3em;
+  color: #ffffffab;
 }
 
 .navbar button {
   background: #fff;
+}
+
+.rightElement {
+  display: flex;
+  align-items: center;
+}
+
+.search {
+  position: relative;
+}
+
+.search i {
+  position: absolute;
+  color: #ffffff57;
+  left: 9px;
+  top: 9px;
 }

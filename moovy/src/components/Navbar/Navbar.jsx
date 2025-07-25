@@ -16,8 +16,11 @@ export default function Navbar() {
         <Link href="/">Films</Link>
         <Link href="/">Séries</Link>
       </div>
-      <div>
-        <input type="search" placeholder="Rechercher" />
+      <div className={styles.rightElement}>
+        <div className={styles.search}>
+          <input type="search" placeholder="Rechercher" />
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
         <Btn>Connexion</Btn>
       </div>
     </nav>
