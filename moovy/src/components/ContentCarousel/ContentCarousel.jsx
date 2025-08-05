@@ -6,12 +6,12 @@ const ContentCarousel = ({movies}) => {
  return(
     <section>
         <div className={styles.carousel}>
-        <Btn variant="arrow" className={styles.arrowLeft}></Btn>
-        <Btn variant="arrow" className={styles.arrowRight}></Btn>
         <div className={styles.titleList}>
             <span>Les dernières nouveauté </span>
             <h1>Sortie cette année</h1>
         </div>
+        <Btn variant="arrow" className={styles.arrowLeft}></Btn>
+        <Btn variant="arrow" className={styles.arrowRight}></Btn>
             <div className={styles.container}>
                 {movies.map((movie, index) => (
                     <div key={movie.id || index} className={styles.movie}>

@@ -54,3 +54,8 @@ table {
 :focus {
   outline: none;
 }
+
+main {
+  position: absolute;
+  bottom: 11em;
+}

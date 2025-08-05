@@ -10,7 +10,7 @@ export default function Navbar() {
 
       <div className={styles.leftElement}>
         <Link href="/">
-          <Image src={Logo} alt="Logo Moovy" width={150} height={34} />
+          <Image src={Logo} alt="Logo Moovy" width={100} height={34} />
         </Link>
         <Link href="/">Accueil</Link>
         <Link href="/">Films</Link>

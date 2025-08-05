@@ -49,8 +49,14 @@
     margin-bottom: 1em;
 }
 
-.titleList p {
+.titleList h1 {
+    font-size: 3em;
+    margin-bottom: 12px;
+}
+
+.titleList span {
     color: #99aeffb0;
+    font-size: 15px;
 }
 
 .overview {
