@@ -7,11 +7,11 @@ import Logo from "../../assets/images/logo.svg";
 export default function Navbar() {
   return (
     <nav className={styles.navbar}>
-      <Link href="/">
-        <Image src={Logo} alt="Logo Moovy" width={150} height={34} />
-      </Link>
 
-      <div className="flex flex-row items-center h-full gap-5 md:gap-10 hidden sm:flex">
+      <div className={styles.leftElement}>
+        <Link href="/">
+          <Image src={Logo} alt="Logo Moovy" width={150} height={34} />
+        </Link>
         <Link href="/">Accueil</Link>
         <Link href="/">Films</Link>
         <Link href="/">Séries</Link>

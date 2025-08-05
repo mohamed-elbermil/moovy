@@ -2,6 +2,7 @@
     background: #D9D9D9;
     color: #000000;
     border-radius: 13px;
+    font-size: 16px;
     padding: 1em;
   }
  
@@ -9,9 +10,8 @@
     font-family: "Font Awesome 7 Free"; 
     content: "\f04b";
     font-weight: 900; 
-    margin-left: 8px;
     display: inline-block;
-    margin: 0 7px 0 0;
+    margin-right: 15px;
   }
 
   .btnArrow {
