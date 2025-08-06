@@ -1,0 +1,9 @@
+.title {
+    font-size: var(--font-size-title);
+}
+
+.paragraph {
+    font-size: var(--font-size-paragraph);
+    color: rgba(255, 255, 255, 0.882);
+    line-height: 25px;
+}

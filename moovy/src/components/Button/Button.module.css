@@ -28,3 +28,18 @@
     content: "\f054";
     font-weight: 900; 
   }
+
+  .socialMedia {
+    background: var(--color-discord);
+    padding: 20px 30px;
+    color: #fff;
+    font-size: 16px;
+    border-radius: 11px;
+  }
+
+  .socialMedia::after {
+    font-family: "Font Awesome 7 Brands";
+    content: '\f392';
+    font-size: 16px;
+    font-weight: 900;
+  }

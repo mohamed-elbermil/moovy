@@ -1,0 +1,10 @@
+:root {
+    --color-primary-color : red;
+
+    /* Font */
+    --font-size-title : 30px;
+    --font-size-paragraph : 16px;
+
+    /* Social Media */
+    --color-discord : #5663ec
+}

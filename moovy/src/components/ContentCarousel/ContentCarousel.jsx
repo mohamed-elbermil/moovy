@@ -1,8 +1,18 @@
+"use client"
+import { useRef } from "react"
 import styles from "../ContentCarousel/ContentCarousel.module.css"
 import genreMap from "../../data/genreMap"
 import Btn from "../Button/Button"
 
+
 const ContentCarousel = ({movies}) => {
+    const containerRef = useRef(null);
+    const scrollLeft = () => {
+        containerRef.current.scrollBy({left: -300, behavior: "smooth"});
+    }
+    const scrollRight = () => {
+        containerRef.current.scrollBy({left: 300, behavior: "smooth"});
+    }
  return(
     <section>
         <div className={styles.carousel}>
@@ -10,9 +20,9 @@ const ContentCarousel = ({movies}) => {
             <span>Les dernières nouveauté </span>
             <h1>Sortie cette année</h1>
         </div>
-        <Btn variant="arrow" className={styles.arrowLeft}></Btn>
-        <Btn variant="arrow" className={styles.arrowRight}></Btn>
-            <div className={styles.container}>
+        <Btn variant="arrow" className={styles.arrowLeft} onClick={scrollLeft}></Btn>
+        <Btn variant="arrow" className={styles.arrowRight} onClick={scrollRight}></Btn>
+            <div className={styles.container} ref={containerRef}>
                 {movies.map((movie, index) => (
                     <div key={movie.id || index} className={styles.movie}>
                         {movie.poster_path ? (

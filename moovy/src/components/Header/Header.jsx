@@ -12,7 +12,7 @@ export default function Header() {
                     <p className={styles.infos}>Action</p> 
                     <p className={styles.infos}>2h05</p> 
                 </div>
-                <p className={styles.description}>Ceci est une description de film Dolor Lorem ipsum Dolor Lorem ipsum Dolor Lorem ipsum Dolor Lorem ipsum Dolor Lorem ipsum Dolor Lorem ipsum Dolor Lorem ipsum Dolor </p>
+                <p className="paragraph">Ceci est une description de film Dolor Lorem ipsum Dolor Lorem ipsum Dolor Lorem ipsum Dolor Lorem ipsum Dolor Lorem ipsum Dolor Lorem ipsum Dolor Lorem ipsum Dolor </p>
                 <Btn variant='play'>Lecture</Btn>
             </div>
         </header>

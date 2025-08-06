@@ -14,8 +14,8 @@
 
 .poster {
     position: relative;
-    width: 10em;
-    height: 15em;
+    width: 17em;
+    height: 24em;
     border-radius: 5px;
     transition: .4s;
     object-fit: cover;

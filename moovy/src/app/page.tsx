@@ -1,5 +1,8 @@
 import { access } from "fs";
 import ContentCarousel from "../components/ContentCarousel/ContentCarousel";
+import FollowUsBar from "../components/FollowUsBar/FollowUsBar"
+import "../styles/variables.css"
+import "../styles/base.css"
 
 export default async function Home() {
   const API_KEY = process.env.TMDB_API_KEY;
@@ -19,6 +22,7 @@ export default async function Home() {
   return (
     <main>
       <ContentCarousel movies={data.results || []} />
+      <FollowUsBar/>
     </main>
   );
 }

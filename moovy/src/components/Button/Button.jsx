@@ -15,6 +15,9 @@ const Btn = ({ children, href, variant = "primary", className = "", ...props }) 
         case 'play':
             baseClass = styles.btnPlay;
             break;
+        case 'socialMedia':
+            baseClass = styles.socialMedia;
+            break;
         default:
             baseClass = styles.btnPrimary;
     }
