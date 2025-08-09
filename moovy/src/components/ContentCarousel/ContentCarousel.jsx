@@ -48,6 +48,7 @@ const ContentCarousel = ({movies}) => {
                                 ? movie.overview.slice(0,270) + " ..."
                                 :movie.overview}
                             </p>
+                            <Btn className={styles.btnTrailer}>Voir Trailer</Btn>
                         </div>
                     </div>
                 ))}

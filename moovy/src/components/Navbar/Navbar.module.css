@@ -21,10 +21,17 @@
 }
 
 .navbar input {
+  width: 8em;
+  transition-duration: .4s;
   background: #ffffff57;
   border-radius: 44px;
   padding-left: 3em;
   color: #ffffffab;
+}
+
+.navbar input:focus {
+  width: 20em;
+  background: linear-gradient(45deg, #ffffff3c, #ffffff96);
 }
 
 .navbar button {

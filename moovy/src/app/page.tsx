@@ -23,6 +23,9 @@ export default async function Home() {
     <main>
       <ContentCarousel movies={data.results || []} />
       <FollowUsBar/>
+      <ContentCarousel movies={data.results || []} />
+      <ContentCarousel movies={data.results || []} />
+      <ContentCarousel movies={data.results || []} />
     </main>
   );
 }

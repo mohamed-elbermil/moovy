@@ -17,7 +17,7 @@ const genreMap = {
     10770: "Téléfilm",
     53: "Thriller",
     10752: "Guerre",
-    37: "Western"
+    37: "Western",
 }
 
 export default genreMap;

@@ -12,7 +12,12 @@ const FollowUsBar = () => {
                     C’est notre centre d’info : bugs, nouveautés, annonces… tout y est !</p>
                 </div>
                 <div className={styles.rightElement}>
-                    <Btn variant="socialMedia">Notre Discord</Btn>
+                    <Btn 
+                    variant="socialMedia"
+                    as = "a"
+                    href={"#"}
+                    
+                    >Notre Discord</Btn>
                 </div>
             </div>
         </div>

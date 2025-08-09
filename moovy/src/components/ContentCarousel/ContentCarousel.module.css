@@ -15,23 +15,38 @@
     width: 100%;
 }
 
-.poster {
+
+.movie img {
     position: relative;
-    height: 24em;
-    border-radius: 5px;
-    transition: .4s;
-    object-fit: cover;
+    width: 22em;
+    height: 33em;
+    border-radius: 20px;
 }
 
-.poster:hover {
-    width: 22em;
-    border-radius: 5px 5px 0 0;
-
+.movie:hover .activeCard{
+    position: absolute;
+    bottom: 0;
+    background: #0000007d;
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    color: #fff;
+    border-radius:20px;
+    backdrop-filter: blur(71px);
+    height: 100%;
+    visibility: visible;
+    opacity: 1;
+    z-index: 10;
+    justify-content: space-between;
 }
 
 .activeCard {
     position: absolute;
-    display: none;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease-out; /* animation de l’opacité */
+
     width: 22em;
     z-index: 4;
 }
@@ -39,7 +54,8 @@
 .title {
     font-size: 20px;
     font-weight: 600;
-    white-space:nowrap;
+    line-height: 25px;
+    text-align: center;
 }
 
 .titleList {
@@ -68,20 +84,7 @@
     transition: .4s;
 }
 
-.movie img:hover .activeCard{
-    position: absolute;
-    top: 137px;
-    display: block;
-    background: #0000007d;
-    padding: 1em;
-    display: flex
-;
-    flex-direction: column;
-    gap: 16px;
-    color: #fff;
-    border-radius: 0 0 20px 20px;
-    backdrop-filter: blur(71px);
-}
+
 
 .arrowLeft {
     position: absolute;
