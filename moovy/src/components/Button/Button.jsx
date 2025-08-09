@@ -31,13 +31,15 @@ const Btn = ({ children, href, variant = "primary", className = "", ...props }) 
                 {children}
             </Link>
         );
+    }else{
+        return (
+            <button className={combinedClassName} {...props}>
+                {children}
+            </button>
+        );
+
     }
 
-    return (
-        <button className={combinedClassName} {...props}>
-            {children}
-        </button>
-    );
 };
 
 

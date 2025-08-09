@@ -15,6 +15,7 @@ export default function Header() {
                 <p className="paragraph">Ceci est une description de film Dolor Lorem ipsum Dolor Lorem ipsum Dolor Lorem ipsum Dolor Lorem ipsum Dolor Lorem ipsum Dolor Lorem ipsum Dolor Lorem ipsum Dolor </p>
                 <Btn variant='play'>Lecture</Btn>
             </div>
+                <div className={styles.bannerFade}></div>
         </header>
         
     )

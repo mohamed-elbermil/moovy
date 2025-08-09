@@ -57,6 +57,6 @@ table {
 
 main {
   position: absolute;
-  bottom: 1em;
+  top: 60%;
   padding: 0 15em;
 }

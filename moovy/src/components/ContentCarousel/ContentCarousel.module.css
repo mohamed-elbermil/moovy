@@ -1,20 +1,22 @@
 .container {
     position: relative;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
+}
+
+.movies {
+    display: flex;
     gap: 1em;
+    overflow: hidden;
+    max-width: 140em;
 }
 
 .carousel {
     position: relative;
-    margin: 2em 3em;
+    margin: 2em 0;
     width: 100%;
 }
 
 .poster {
     position: relative;
-    width: 17em;
     height: 24em;
     border-radius: 5px;
     transition: .4s;
@@ -23,7 +25,6 @@
 
 .poster:hover {
     width: 22em;
-    height: 15em;
     border-radius: 5px 5px 0 0;
 
 }
@@ -32,7 +33,6 @@
     position: absolute;
     display: none;
     width: 22em;
-    height: 15em;
     z-index: 4;
 }
 
@@ -64,16 +64,23 @@
     line-height: 22px;
 }
 
-.movie:hover .activeCard{
+.movie {
+    transition: .4s;
+}
+
+.movie img:hover .activeCard{
     position: absolute;
-    top: 240px;
+    top: 137px;
     display: block;
-    background: #1F1F1F;
+    background: #0000007d;
     padding: 1em;
-    display: flex;
+    display: flex
+;
     flex-direction: column;
     gap: 16px;
     color: #fff;
+    border-radius: 0 0 20px 20px;
+    backdrop-filter: blur(71px);
 }
 
 .arrowLeft {
@@ -83,12 +90,10 @@
     transform: translateY(-50%);
     transform: rotate(180deg);
     z-index: 10;
-    border: solid 4px #0d0c1f;
 }
 .arrowRight {
     position: absolute;
     top: 50%;
-    right: 2em;
-    transform: translateY(-50%);
+    right: -31px;
     z-index: 10;
 }
