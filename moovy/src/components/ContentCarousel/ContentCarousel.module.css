@@ -115,3 +115,12 @@
     padding: 11px 13px;
     border-radius: 54px;
 }
+
+.btnTrailer {
+    background: #fff;
+    transition: .4s;
+    cursor: pointer;
+}
+.btnTrailer:hover {
+    background: #d0b6ff;
+}

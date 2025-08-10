@@ -4,6 +4,19 @@ import styles from "../ContentCarousel/ContentCarousel.module.css"
 import genreMap from "../../data/genreMap"
 import Btn from "../Button/Button"
 
+const openTrailer = async (movieId) => {
+    const response = await fetch(`https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=659ebb575947822b54330a69ba2a1f3f`);
+    const data = await response.json();
+    const trailer = data.results.find(
+      video => video.site === "YouTube" && video.type === "Trailer"
+    );
+    if(trailer) {
+      window.open(`https://www.youtube.com/watch?v=${trailer.key}`, "_blank");
+    } else {
+      alert("Trailer non disponible");
+    }
+  };
+
 const ContentCarousel = ({movies}) => {
     const moviesRef = useRef(null);
     const scrollLeft = () => {
@@ -52,7 +65,7 @@ const ContentCarousel = ({movies}) => {
                                             ? movie.overview.slice(0,200) + " ..."
                                             : movie.overview}
                                     </p>
-                                    <Btn className={styles.btnTrailer}>Voir Trailer</Btn>
+                                    <Btn className={styles.btnTrailer} onClick={() => openTrailer(movie.id)}>Voir Trailer</Btn>
                                 </div>
                             </div>
                         ))}

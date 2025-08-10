@@ -22,6 +22,12 @@
     box-shadow: 0 0 16px #00000066;
     border: solid 10px #0d0c1f;
     backdrop-filter: blur(51px);
+    transition-duration: .4s;
+  }
+
+  .btnArrow:hover {
+    background: #fff;
+    cursor: pointer;
   }
 
   .btnArrow::after {
