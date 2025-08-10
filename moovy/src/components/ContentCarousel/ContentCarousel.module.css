@@ -15,6 +15,10 @@
     width: 100%;
 }
 
+.movie {
+    position: relative;
+    transition: .4s;
+}
 
 .movie img {
     position: relative;
@@ -23,7 +27,7 @@
     border-radius: 20px;
 }
 
-.movie:hover .activeCard{
+.movie:hover .activeCard {
     position: absolute;
     bottom: 0;
     background: #0000007d;
@@ -32,7 +36,7 @@
     flex-direction: column;
     gap: 16px;
     color: #fff;
-    border-radius:20px;
+    border-radius: 20px;
     backdrop-filter: blur(71px);
     height: 100%;
     visibility: visible;
@@ -45,7 +49,7 @@
     position: absolute;
     visibility: hidden;
     opacity: 0;
-    transition: opacity 0.3s ease-out; /* animation de l’opacité */
+    transition: opacity 0.3s ease-out;
 
     width: 22em;
     z-index: 4;
@@ -78,13 +82,10 @@
 .overview {
     font-size: 14px;
     line-height: 22px;
+    background: #ffffff12;
+    padding: 1em;
+    border-radius: 24px;
 }
-
-.movie {
-    transition: .4s;
-}
-
-
 
 .arrowLeft {
     position: absolute;
@@ -99,4 +100,18 @@
     top: 50%;
     right: -31px;
     z-index: 10;
+}
+
+.genres {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+    margin-top: 13px;
+    justify-content: center;
+}
+
+.genreItem {
+    background: #000000;
+    padding: 11px 13px;
+    border-radius: 54px;
 }
