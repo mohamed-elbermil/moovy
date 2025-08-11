@@ -1,5 +1,6 @@
 import ContentCarousel from "../components/ContentCarousel/ContentCarousel";
 import FollowUsBar from "../components/FollowUsBar/FollowUsBar";
+import CategorieList from "../components/CategorieList/CategorieList"
 import "../styles/variables.css";
 import "../styles/base.css";
 import genreMap from "../data/genreMap";
@@ -48,6 +49,11 @@ export default async function Home() {
       title: "Frissons & Suspense",
       subtitle: "Entre peur et adrénaline",
     },
+
+    {
+      type:"list",
+    },
+
     {
       type: "carousel",
       names: ["Fantastique", "Comédie"],
@@ -72,6 +78,11 @@ export default async function Home() {
         if (section.type === "followUs") {
           return <FollowUsBar key={index} />;
         }
+
+        if(section.type  === "list") {
+          return <CategorieList key={index} />
+        }
+
         return null;
       })}
     </main>

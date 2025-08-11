@@ -1,0 +1,45 @@
+.categories {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+}
+
+.card {
+    position: relative;
+    background: green;
+    font-size: 16px;
+    padding: 2em;
+    height: 134px;
+    width: 280px;
+    border-radius: 20px;
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    flex-direction: column;
+    gap: 8px;
+    overflow: hidden;
+}
+
+.card span:nth-child(1) {
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.movie {
+    position: absolute;
+    width: 81px;
+    background: rgb(253, 190, 190);
+    height: 135px;
+    bottom: -40px;
+    right: 30px;
+    border-radius: 11px;
+    box-shadow: 0 0 20px #00000040;
+    transform: rotate(20deg);
+    transition-duration: .4s;
+}
+
+.card:hover .movie {
+    transform: rotate(28deg);
+
+}
+

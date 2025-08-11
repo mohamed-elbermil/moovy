@@ -1,5 +1,20 @@
-.title {
+@import "./variables.css";
+
+.title-section {
     font-size: var(--font-size-title);
+    margin-bottom: 1em;
+}
+
+.subtitle {
+    color: #99aeffb0;
+    font-size: 17px;
+    text-shadow: 0 0 21px #2d344e;
+}
+
+.title-container {
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
 }
 
 .paragraph {

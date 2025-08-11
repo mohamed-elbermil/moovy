@@ -62,22 +62,6 @@
     text-align: center;
 }
 
-.titleList {
-    display: flex;
-    flex-direction: column;
-    gap: 11px;
-    margin-bottom: 1em;
-}
-
-.titleList h1 {
-    font-size: 3em;
-    margin-bottom: 12px;
-}
-
-.titleList span {
-    color: #99aeffb0;
-    font-size: 15px;
-}
 
 .overview {
     font-size: 14px;

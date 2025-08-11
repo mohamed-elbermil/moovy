@@ -30,9 +30,9 @@ const openTrailer = async (movieId) => {
     return (
       <section>
         <div className={styles.carousel}>
-          <div className={styles.titleList}>
-            <span>{subtitle}</span>
-            <h1>{title}</h1>
+          <div className="title-container">
+            <span className="subtitle">{subtitle}</span>
+            <h2 className="title-section">{title}</h2>
           </div>
           <Btn variant="arrow" className={styles.arrowLeft} onClick={scrollLeft}></Btn>
           <Btn variant="arrow" className={styles.arrowRight} onClick={scrollRight}></Btn>
