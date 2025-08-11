@@ -80,7 +80,13 @@ export default async function Home() {
         }
 
         if(section.type  === "list") {
-          return <CategorieList key={index} />
+          return (
+          <CategorieList
+           key={index} 
+           title="Parcours nos catégories"
+           subtitle="Nos catégories"
+           />
+          )
         }
 
         return null;
