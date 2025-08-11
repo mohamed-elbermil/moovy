@@ -1,58 +1,79 @@
-import { access } from "fs";
 import ContentCarousel from "../components/ContentCarousel/ContentCarousel";
-import FollowUsBar from "../components/FollowUsBar/FollowUsBar"
-import "../styles/variables.css"
-import "../styles/base.css"
-import genreMap from "../data/genreMap"
-
-
+import FollowUsBar from "../components/FollowUsBar/FollowUsBar";
+import "../styles/variables.css";
+import "../styles/base.css";
+import genreMap from "../data/genreMap";
 
 export default async function Home() {
-  
-  
   const API_KEY = process.env.TMDB_API_KEY;
   console.log("API_KEY =", API_KEY);
+
   const res = await fetch(
     `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&language=fr&sort_by=popularity.desc`,
-    { cache: 'no-store' }
+    { cache: "no-store" }
   );
-  
+
   if (!res.ok) {
     console.error("Erreur fetch TMDb :", res.status);
     return <main>Erreur lors du chargement des films</main>;
   }
-  
+
   const data = await res.json();
-  const actionGenreId = 28; 
-  const horrorGenreId = 27;   
-  const fantasticGenreId = 14;  
-  
-  // Filtrer les films action et horreur
-  const actionMovies = data.results.filter(movie => movie.genre_ids.includes(actionGenreId));
-  const horrorMovies = data.results.filter(movie => movie.genre_ids.includes(horrorGenreId));
-  const fantasticMovies = data.results.filter(movie => movie.genre_ids.includes(fantasticGenreId));
+
+  const getMoviesByGenreNames = (genreNames) => {
+    const genreIds = genreNames.map(
+      (name) =>
+        Number(Object.keys(genreMap).find((id) => genreMap[id] === name))
+    );
+
+    return data.results.filter((movie) =>
+      movie.genre_ids.some((id) => genreIds.includes(id))
+    );
+  };
+
+  // Liste complète des sections à afficher dans l'ordre
+  const sections = [
+    {
+      type: "carousel",
+      names: ["Action"],
+      title: "Action Non-Stop",
+      subtitle: "Les sensations fortes à couper le souffle",
+    },
+    {
+      type: "followUs",
+    },
+    {
+      type: "carousel",
+      names: ["Horreur", "Thriller"],
+      title: "Frissons & Suspense",
+      subtitle: "Entre peur et adrénaline",
+    },
+    {
+      type: "carousel",
+      names: ["Fantastique", "Comédie"],
+      title: "Comédie & Univers Mystérieux",
+      subtitle: "Des mondes imaginaires qui vous captivent",
+    },
+  ];
 
   return (
     <main>
-      <ContentCarousel 
-        movies={actionMovies} 
-        title="Action Non-Stop" 
-        subtitle="Les sensations fortes à couper le souffle"
-      />
-
-      <FollowUsBar />
-
-      <ContentCarousel 
-        movies={horrorMovies} 
-        title="Frissons & Terreur" 
-        subtitle="Osez plonger dans l’horreur ultime"
-      />
-
-      <ContentCarousel 
-        movies={fantasticMovies}
-        title="Univers Fantastiques" 
-        subtitle="Des mondes imaginaires qui vous captivent"
-      />
+      {sections.map((section, index) => {
+        if (section.type === "carousel") {
+          return (
+            <ContentCarousel
+              key={index}
+              movies={getMoviesByGenreNames(section.names)}
+              title={section.title}
+              subtitle={section.subtitle}
+            />
+          );
+        }
+        if (section.type === "followUs") {
+          return <FollowUsBar key={index} />;
+        }
+        return null;
+      })}
     </main>
   );
 }
