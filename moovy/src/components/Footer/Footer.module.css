@@ -1,0 +1,14 @@
+.footer {
+    border-top: 1px solid #ffffff ;
+    opacity: 70%;
+    padding: 2em;
+    text-align: center;
+}
+
+.footer p {
+    margin-bottom: 1em ;
+}
+
+.footer  a {
+    color: #01b4e4;    
+}

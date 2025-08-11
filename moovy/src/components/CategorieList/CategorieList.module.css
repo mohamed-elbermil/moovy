@@ -6,7 +6,6 @@
 
 .card {
     position: relative;
-    background: green;
     font-size: 16px;
     padding: 2em;
     height: 134px;
@@ -27,11 +26,11 @@
 
 .movie {
     position: absolute;
-    width: 81px;
+    width: 111px;
     background: rgb(253, 190, 190);
-    height: 135px;
+    height: 153px;
     bottom: -40px;
-    right: 30px;
+    right: -10px;
     border-radius: 11px;
     box-shadow: 0 0 20px #00000040;
     transform: rotate(20deg);
@@ -39,7 +38,52 @@
 }
 
 .card:hover .movie {
-    transform: rotate(28deg);
+    transform: rotate(10deg);
+    right: 10px;
 
 }
+
+.card:nth-child(1) {
+    background: linear-gradient(45deg, #1c2047, #ffffff);
+}
+.card:nth-child(2) {
+    background: linear-gradient(45deg, #7b2c6e, #ffffff);
+}
+.card:nth-child(3) {
+    background: linear-gradient(45deg, #9c692a, #ffffff);
+}
+.card:nth-child(4) {
+    background: linear-gradient(45deg, #090b1f, #ffffff);
+}
+.card:nth-child(5) {
+    background: linear-gradient(45deg, #ac2222, #ffffff);
+}
+.card:nth-child(6) {
+    background: linear-gradient(45deg, #857d19, #ffffff);
+}
+.card:nth-child(7) {
+    background: linear-gradient(45deg, #7729b3, #ffffff);
+}
+.card:nth-child(8) {
+    background: linear-gradient(45deg, #1c2047, #ffffff);
+}
+.card:nth-child(9) {
+    background: linear-gradient(45deg, #1c2047, #ffffff);
+}
+.card:nth-child(10) {
+    background: linear-gradient(45deg, #1c2047, #ffffff);
+}
+.card:nth-child(11) {
+    background: linear-gradient(45deg, #1c2047, #ffffff);
+}
+.card:nth-child(12) {
+    background: linear-gradient(45deg, #1c2047, #ffffff);
+}
+.card:nth-child(13) {
+    background: linear-gradient(45deg, #1c2047, #ffffff);
+}
+.card:nth-child(14) {
+    background: linear-gradient(45deg, #1c2047, #ffffff);
+}
+
 

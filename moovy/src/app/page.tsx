@@ -1,6 +1,7 @@
 import ContentCarousel from "../components/ContentCarousel/ContentCarousel";
 import FollowUsBar from "../components/FollowUsBar/FollowUsBar";
 import CategorieList from "../components/CategorieList/CategorieList"
+import Footer from "../components/Footer/Footer"
 import "../styles/variables.css";
 import "../styles/base.css";
 import genreMap from "../data/genreMap";
@@ -85,12 +86,14 @@ export default async function Home() {
            key={index} 
            title="Parcours nos catégories"
            subtitle="Nos catégories"
+           movies={data.results}
            />
           )
         }
 
         return null;
       })}
+    <Footer/>
     </main>
   );
 }
