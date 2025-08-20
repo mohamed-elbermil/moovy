@@ -22,8 +22,6 @@
 
 .movie img {
     position: relative;
-    width: 22em;
-    height: 33em;
     border-radius: 20px;
 }
 
@@ -38,13 +36,16 @@
     color: #fff;
     border-radius: 20px;
     backdrop-filter: blur(71px);
-    height: 100%;
     visibility: visible;
     opacity: 1;
     z-index: 10;
     justify-content: space-between;
 }
 
+.movie img, .activeCard {
+    width: 16em;
+    height: 25em;
+}
 .activeCard {
     position: absolute;
     visibility: hidden;
@@ -112,10 +113,9 @@
     background: #d0b6ff;
 }
 
-
-@media screen and (min-width:768px){
+@media screen and (max-width:425px) {
     .movie img, .activeCard {
-        width: 16em;
-        height: 25em;
+        width: 10em;
+        height: 16em;
     }
 }
