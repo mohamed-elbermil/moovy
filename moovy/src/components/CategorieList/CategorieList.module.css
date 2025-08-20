@@ -1,5 +1,7 @@
 .categories {
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     align-items: center;
     gap: 1em;
 }
@@ -8,7 +10,7 @@
     position: relative;
     font-size: 16px;
     padding: 2em;
-    height: 134px;
+    height: 84px;
     width: 280px;
     border-radius: 20px;
     display: flex;
@@ -26,11 +28,11 @@
 
 .movie {
     position: absolute;
-    width: 111px;
+    width: 81px;
     background: rgb(253, 190, 190);
-    height: 153px;
-    bottom: -40px;
-    right: -10px;
+    height: 113px;
+    bottom: -44px;
+    right: -3px;
     border-radius: 11px;
     box-shadow: 0 0 20px #00000040;
     transform: rotate(20deg);
@@ -56,7 +58,7 @@
     background: linear-gradient(45deg, #090b1f, #ffffff);
 }
 .card:nth-child(5) {
-    background: linear-gradient(45deg, #ac2222, #ffffff);
+    background: linear-gradient(45deg, #B71C1C, #ffffff);
 }
 .card:nth-child(6) {
     background: linear-gradient(45deg, #857d19, #ffffff);
@@ -65,25 +67,28 @@
     background: linear-gradient(45deg, #7729b3, #ffffff);
 }
 .card:nth-child(8) {
-    background: linear-gradient(45deg, #1c2047, #ffffff);
+    background: linear-gradient(45deg, #8a2a73, #ffffff);
 }
 .card:nth-child(9) {
-    background: linear-gradient(45deg, #1c2047, #ffffff);
+    background: linear-gradient(45deg, #02030e, #ffffff);
 }
 .card:nth-child(10) {
-    background: linear-gradient(45deg, #1c2047, #ffffff);
+    background: linear-gradient(45deg, #6D4C41, #ffffff);
 }
 .card:nth-child(11) {
-    background: linear-gradient(45deg, #1c2047, #ffffff);
+    background: linear-gradient(45deg, #00ACC1, #ffffff);
 }
 .card:nth-child(12) {
-    background: linear-gradient(45deg, #1c2047, #ffffff);
+    background: linear-gradient(45deg, #34495E, #ffffff);
 }
 .card:nth-child(13) {
-    background: linear-gradient(45deg, #1c2047, #ffffff);
+    background: linear-gradient(45deg, #8E44AD, #ffffff);
 }
 .card:nth-child(14) {
-    background: linear-gradient(45deg, #1c2047, #ffffff);
+    background: linear-gradient(45deg, #E91E63, #ffffff);
+}
+.card:nth-child(15) {
+    background: linear-gradient(45deg, #4CAF50, #ffffff);
 }
 
 

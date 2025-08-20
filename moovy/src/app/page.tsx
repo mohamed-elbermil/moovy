@@ -43,6 +43,9 @@ export default async function Home() {
     },
     {
       type: "followUs",
+    },    
+    {
+      type:"list",
     },
     {
       type: "carousel",
@@ -51,9 +54,7 @@ export default async function Home() {
       subtitle: "Entre peur et adrénaline",
     },
 
-    {
-      type:"list",
-    },
+
 
     {
       type: "carousel",

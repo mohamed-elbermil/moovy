@@ -7,7 +7,7 @@ export default function CategorieList({ title, subtitle, movies }) {
   return (
     <section>
       <div className={styles.container}>
-        <div className="title-container">
+        <div className="title-container center">
           <span className="subtitle">{subtitle}</span>
           <h2 className="title-section">{title}</h2>
         </div>
