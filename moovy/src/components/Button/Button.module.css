@@ -38,16 +38,17 @@
 
   .socialMedia {
     background: var(--color-discord);
-    padding: 20px 30px;
+    padding: 17px 18px;
     color: #fff;
-    font-size: 16px;
+    font-size: 19px;
     border-radius: 11px;
+    white-space: nowrap;
   }
 
   .socialMedia::after {
     font-family: "Font Awesome 7 Brands";
     content: '\f392';
-    font-size: 16px;
+    font-size: 23px;
     font-weight: 900;
     margin-left: 1em;
   }

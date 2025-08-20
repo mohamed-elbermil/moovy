@@ -62,10 +62,16 @@ const openTrailer = async (movieId) => {
                       ))}
                     </span>
                     <p className={styles.title}>{movie.title}</p>                  
-                    <p className={styles.overview}>
-                      {movie.overview.length > 200
-                        ? movie.overview.slice(0,200) + " ..."
-                        : movie.overview}
+                    <p className={
+                      movie.overview.length === 0
+                        ? styles.noneOverview
+                        : styles.overview
+                      }>
+                      {movie.overview.length === 0
+                        ? "Pas de résumé disponible"
+                        :movie.overview.length > 200
+                            ? movie.overview.slice(0,100) + " ..."
+                            : movie.overview}
                     </p>
                     <Btn className={styles.btnTrailer} onClick={() => openTrailer(movie.id)}>Voir Trailer</Btn>
                   </div>

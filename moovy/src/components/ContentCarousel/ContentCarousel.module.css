@@ -50,8 +50,6 @@
     visibility: hidden;
     opacity: 0;
     transition: opacity 0.3s ease-out;
-
-    width: 22em;
     z-index: 4;
 }
 
@@ -69,6 +67,11 @@
     background: #ffffff12;
     padding: 1em;
     border-radius: 24px;
+}
+
+.noneOverview{
+    color: #ffffffa1;
+    text-align: center;
 }
 
 .arrowLeft {
@@ -107,4 +110,12 @@
 }
 .btnTrailer:hover {
     background: #d0b6ff;
+}
+
+
+@media screen and (min-width:768px){
+    .movie img, .activeCard {
+        width: 16em;
+        height: 25em;
+    }
 }
