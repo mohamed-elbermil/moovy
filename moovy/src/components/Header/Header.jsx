@@ -13,7 +13,7 @@ const useSerieData = (tvId) => {
   useEffect(() => {
     const fetchSerieData = async () => {
       try {
-        // 1️⃣ Récupération des infos principales en français
+        // 1Récupération des infos principales en français
         const response = await fetch(
           `https://api.themoviedb.org/3/tv/${tvId}?api_key=659ebb575947822b54330a69ba2a1f3f&language=fr-FR`
         );
@@ -23,7 +23,7 @@ const useSerieData = (tvId) => {
         let titleFR = data.name;
         let overviewFR = data.overview;
 
-        // 2️⃣ Si la description est vide, on récupère les traductions
+        // Si la description est vide, on récupère les traductions
         if (!overviewFR || overviewFR.trim() === "") {
           const translationsResp = await fetch(
             `https://api.themoviedb.org/3/tv/${tvId}/translations?api_key=659ebb575947822b54330a69ba2a1f3f`
@@ -38,7 +38,7 @@ const useSerieData = (tvId) => {
 
         setSerieData({ ...data, titleFR, overviewFR });
 
-        // 3️⃣ Récupération de la classification d’âge
+        // Récupération de la classification d’âge
         const ratingResponse = await fetch(
           `https://api.themoviedb.org/3/tv/${tvId}/content_ratings?api_key=659ebb575947822b54330a69ba2a1f3f`
         );
@@ -81,7 +81,7 @@ const Header = () => {
       <div className={styles.headerContent}>
         <h1 className={styles.title}>{title}</h1>
         <div className={styles.categorieList}>
-          <CNC className={styles.cnc}>{rating}</CNC>
+          <CNC className={styles.cnc}>+{rating}</CNC>
           <p className={styles.infos}>{genres}</p>
           <p className={styles.infos}>{runtime}</p>
         </div>
