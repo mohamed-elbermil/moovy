@@ -26,19 +26,13 @@
 }
 
 .movie:hover .activeCard {
-    position: absolute;
-    bottom: 0;
-    background: #0000007d;
-    padding: 1em;
+ 
     display: flex;
     flex-direction: column;
-    gap: 16px;
-    color: #fff;
-    border-radius: 20px;
-    backdrop-filter: blur(71px);
+    
     visibility: visible;
     opacity: 1;
-    z-index: 10;
+
     justify-content: space-between;
 }
 
@@ -50,8 +44,16 @@
     position: absolute;
     visibility: hidden;
     opacity: 0;
+    bottom: 3px;
+    background: #0000007d;
+    padding: 1em;
     transition: opacity 0.3s ease-out;
     z-index: 4;
+    gap: 16px;
+    color: #fff;
+    border-radius: 20px;
+    backdrop-filter: blur(71px);
+    z-index: 10;
 }
 
 .title {
