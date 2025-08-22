@@ -17,6 +17,7 @@ export default function Footer() {
                 TMDb
                  </a>
             </p>
+            <p>Réalisé par Mohamed E</p>
         </footer>
     )
 }

@@ -2,10 +2,9 @@
     position: relative;
     height: 75vh;
     overflow: hidden;
-    padding: 0 15em;
+    padding: 0 12em;
   }
   
-  /* pseudo-élément pour le background animé */
   .header::before {
     content: "";
     position: absolute;
@@ -36,11 +35,12 @@
     position: absolute;
     top: 50%;
     font-size: 20px;
-    width: 35em;
+    width: 45%;
 }
 
 .categorieList {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     margin-top: 1em;
     gap: 1em;
@@ -54,4 +54,15 @@
 .bannerFade {
     background: red;
     height: 2em;
+}
+
+@media screen and (max-width:1024px) {
+  .headerContent {
+    width: auto;
+    top: 39%;
+  }
+
+  .header {
+    padding: 0 1em;
+  }
 }

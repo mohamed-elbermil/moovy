@@ -2,7 +2,6 @@ import ContentCarousel from "../components/ContentCarousel/ContentCarousel";
 import FollowUsBar from "../components/FollowUsBar/FollowUsBar";
 import CategorieList from "../components/CategorieList/CategorieList"
 import Footer from "../components/Footer/Footer"
-import "../styles/variables.css";
 import "../styles/base.css";
 import genreMap from "../data/genreMap";
 

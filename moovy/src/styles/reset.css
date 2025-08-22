@@ -1,4 +1,4 @@
-/* reset.css - reset CSS classique */
+@import "./globals.css";
 
 /* Supprime les marges, paddings et bordures */
 *,
@@ -14,7 +14,7 @@
 body {
   line-height: 1;
   font-family: sans-serif;
-  background: #0d0c1f;
+  background: var(--color-primary-color);
   color: #fff;
   overflow-x: hidden;
 }

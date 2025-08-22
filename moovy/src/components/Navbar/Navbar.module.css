@@ -1,10 +1,11 @@
+
 .navbar {
   position: fixed;
   top: 0;
   width: 100%;
   z-index: 9999;
-  padding: 15px 18em;
-  background: black;
+  padding: 15px 12em;
+  background: var(--color-primary-color);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -59,4 +60,74 @@
   color: #ffffff57;
   left: 9px;
   top: 9px;
+}
+
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.burger {
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+/* Liens */
+.links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.search {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.search input {
+  width: 14em;
+  padding: 8px 0 8px 40px;
+  border-radius: 55px;
+  border: none;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .burger {
+    display: block;
+    position: fixed;
+    right: 1em;
+  }
+
+  .links {
+    position: absolute;
+    top: 57px;
+    right: 0;
+    background: #0d0c1fc2;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+    padding: 11em;
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+    width: 100%;
+    height: 100vh;
+    align-items: center;
+    gap: 5em;
+    backdrop-filter: blur(32px);
+  }
+
+  .links.open {
+    transform: translateX(0);
+  }
+}
+
+
+@media screen and (max-width:1024px) {
+  .leftElement, .rightElement{
+    display: none;
+  }
 }
