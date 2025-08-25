@@ -13,17 +13,17 @@ Moovy est une plateforme de streaming fictive qui permet de découvrir et regard
 
 # Installation
 
-git clone 
-cd movie
-npm i
+- git clone 
+- cd movie
+- npm i
 
 # Récupération de la clé API
 
-Créer un compte TMDB => https://www.themoviedb.org/signup?language=fr
-Récupérer la clé API => https://www.themoviedb.org/settings/api?language=fr
-Créer un fichier _.env.local_ à la racine du projet pour coller la clé API, dans une variable nommé _TMDB_API_KEY_ _(TMDB_API_KEY= clé API)_
+- Créer un compte TMDB => https://www.themoviedb.org/signup?language=fr
+- Récupérer la clé API => https://www.themoviedb.org/settings/api?language=fr
+- Créer un fichier _.env.local_ à la racine du projet pour coller la clé API, dans une variable nommé _TMDB_API_KEY_ _(TMDB_API_KEY= clé API)_
 
 # lancement du projet
 
-npm run dev
-Choisir le port 3000
+- npm run dev
+- Choisir le port 3000
