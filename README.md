@@ -21,7 +21,7 @@ Moovy est une plateforme de streaming fictive qui permet de découvrir et regard
 
 - Créer un compte TMDB => https://www.themoviedb.org/signup?language=fr
 - Récupérer la clé API => https://www.themoviedb.org/settings/api?language=fr
-- Créer un fichier _.env.local_ à la racine du projet pour coller la clé API, dans une variable nommé _TMDB_API_KEY_ _(TMDB_API_KEY= clé API)_
+- Créer un fichier _.env.local_ à la racine du projet. Puis dans une variable nommé _TMDB_API_KEY_, coller la clé API.
 
 # lancement du projet
 
