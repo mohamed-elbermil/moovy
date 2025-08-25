@@ -13,7 +13,7 @@ Moovy est une plateforme de streaming fictive qui permet de découvrir et regard
 
 # Installation
 
-- git clone 
+- git clone https://github.com/mohamed-elbermil/moovy.git
 - cd movie
 - npm i
 
