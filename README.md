@@ -1,5 +1,5 @@
 # Moovy 🍿
-Moovy est une plateforme de streaming fictive qui permet de découvrir et regarder vos films et séries préférés. Ce projet a été créé pour tester de nouvelles technologies et améliorer mes compétences en développement. Moovy utilise l’API TMDB pour récupérer les informations des contenus, comme le titre, la description et les images.
+Moovy est une plateforme de streaming fictive qui permet de découvrir et regarder vos films et séries préférés. Ce projet a été créé pour tester de nouvelles technologies et améliorer mes compétences en développement. Moovy utilise l’API TMDB pour récupérer les informations des contenus, comme le titre, la description et les images. Pour rester dans la légalité et sur le droit chemin, les films sont redirigés vers leurs trailers officiels sur YouTube… parce que sinon, c’est mal.
 
 🛠 Stack
 
