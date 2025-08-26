@@ -53,6 +53,20 @@
   backdrop-filter: blur(43px);
 }
 
+.searchMenu::-webkit-scrollbar {
+  width: 6px;        /* largeur de la scrollbar verticale */
+  height: 6px;       /* hauteur de la scrollbar horizontale */
+}
+
+.searchMenu::-webkit-scrollbar-thumb {
+  background-color: #ffffff; /* couleur du curseur */
+  border-radius: 3px;     /* arrondi des coins */
+}
+
+.searchMenu::-webkit-scrollbar-track {
+  background: #2a2649;    /* couleur de fond de la scrollbar */
+  border-radius: 3px;
+}
 .searchMenu .message {
   padding: 12px;
   font-size: 14px;
