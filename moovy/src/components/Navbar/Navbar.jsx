@@ -29,7 +29,7 @@ export default function Navbar() {
       {/* Liens de navigation */}
       <div className={`${styles.links} ${isOpen ? styles.open : ""}`}>
         <Link href="/">Accueil</Link>
-        <Link href="/">Films</Link>
+        <Link href="/films">Films</Link>
         <Link href="/">Séries</Link>
         <div className={styles.search}>
           <input type="search" placeholder="Rechercher" />
