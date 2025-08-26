@@ -51,6 +51,7 @@
   max-height: 300px;
   overflow-y: auto;
   backdrop-filter: blur(43px);
+  border-radius: 0 0 16px 16px;
 }
 
 .searchMenu::-webkit-scrollbar {
