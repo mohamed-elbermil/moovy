@@ -39,6 +39,58 @@
   background: #fff;
 }
 
+.searchMenu {
+  position: absolute;
+  top: 49px;
+  left: 0;
+  right: 0;
+  background: #14115840;
+  border: 1px solid #ffffff;
+  border-top: none;
+  z-index: 20;
+  max-height: 300px;
+  overflow-y: auto;
+  backdrop-filter: blur(43px);
+}
+
+.searchMenu .message {
+  padding: 12px;
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+.searchMenu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.searchMenu li {
+  align-items: center;
+  padding: 10px 12px;
+  border-top: 1px solid #dbdaeebf;
+  cursor: pointer;
+  display: flex;
+  gap: 10px;
+}
+
+/* Image du film */
+.searchMenu li img {
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.searchMenu li .placeholder {
+  width: 46px;
+  height: 69px;
+  background: #ff2c2c;
+  border-radius: 4px;
+}
+
+.searchMenu li span {
+  font-size: 14px;
+}
+
 .rightElement {
   display: flex;
   align-items: center;
@@ -53,6 +105,9 @@
 
 .search {
   position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .search i {
@@ -81,17 +136,17 @@
   gap: 20px;
 }
 
-.search {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
+
 
 .search input {
   width: 14em;
   padding: 8px 0 8px 40px;
   border-radius: 55px;
   border: none;
+}
+
+.search input::placeholder {
+  color: rgba(255, 255, 255, 0.532);
 }
 
 /* Mobile */
@@ -108,8 +163,7 @@
     right: 0;
     background: #0d0c1fc2;
     flex-direction: column;
-    align-items: flex-start;
-    gap: 15px;
+    
     padding: 11em;
     transform: translateX(100%);
     transition: transform 0.3s ease-in-out;
