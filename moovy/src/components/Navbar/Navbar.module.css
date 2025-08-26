@@ -54,17 +54,17 @@
 }
 
 .searchMenu::-webkit-scrollbar {
-  width: 6px;        /* largeur de la scrollbar verticale */
-  height: 6px;       /* hauteur de la scrollbar horizontale */
+  width: 6px;        
+  height: 6px;    
 }
 
 .searchMenu::-webkit-scrollbar-thumb {
-  background-color: #ffffff; /* couleur du curseur */
-  border-radius: 3px;     /* arrondi des coins */
+  background-color: #ffffff; 
+  border-radius: 3px; 
 }
 
 .searchMenu::-webkit-scrollbar-track {
-  background: #2a2649;    /* couleur de fond de la scrollbar */
+  background: #2a2649;  
   border-radius: 3px;
 }
 .searchMenu .message {
@@ -82,7 +82,7 @@
 .searchMenu li {
   align-items: center;
   padding: 10px 12px;
-  border-top: 1px solid #dbdaeebf;
+  border-bottom: 1px solid #dbdaeebf;
   cursor: pointer;
   display: flex;
   gap: 10px;
