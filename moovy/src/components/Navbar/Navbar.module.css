@@ -12,8 +12,16 @@
   color: #fff;
 }
 
-.navbar a {
+.links a {
   font-size: 16px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 2px #c3b5db;
+  transition-duration: .4s;
+}
+
+.links a:hover {
+  box-shadow: 0 0 10px #c3b5db;
 }
 
 .navbar input,
@@ -52,6 +60,7 @@
   overflow-y: auto;
   backdrop-filter: blur(43px);
   border-radius: 0 0 16px 16px;
+  box-shadow: 0 0 101px #ffffff5e;
 }
 
 .searchMenu::-webkit-scrollbar {
@@ -87,6 +96,10 @@
   cursor: pointer;
   display: flex;
   gap: 10px;
+}
+
+.searchMenu li:hover {
+  background: #635f8aa6;
 }
 
 /* Image du film */
