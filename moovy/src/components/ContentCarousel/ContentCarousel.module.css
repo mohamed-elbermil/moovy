@@ -6,7 +6,6 @@
     display: flex;
     gap: 1em;
     overflow: hidden;
-    max-width: 140em;
 }
 
 .carousel {

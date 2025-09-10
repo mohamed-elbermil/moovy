@@ -1,4 +1,4 @@
-import ContentCarousel from "@/components/ContentCarousel/ContentCarousel";
+import FilmsPageWrapper from "@/components/FilmsPageWrapper/FilmsPageWrapper";
 
 type Movie = {
   id: number;
@@ -31,28 +31,28 @@ export default async function FilmsPage() {
     nowPlayingRes.json(),
   ]);
 
-  return (
-    <main>
-      <ContentCarousel
-        movies={popular.results as Movie[]}
-        title="Films Populaires"
-        subtitle="Tendances du moment"
-      />
-      <ContentCarousel
-        movies={topRated.results as Movie[]}
-        title="Mieux notés"
-        subtitle="Les favoris du public"
-      />
-      <ContentCarousel
-        movies={upcoming.results as Movie[]}
-        title="À venir"
-        subtitle="Ne les manquez pas bientôt"
-      />
-      <ContentCarousel
-        movies={nowPlaying.results as Movie[]}
-        title="En salles"
-        subtitle="Actuellement au cinéma"
-      />
-    </main>
-  );
+  const moviesData = [
+    {
+      movies: popular.results as Movie[],
+      title: "Films Populaires",
+      subtitle: "Tendances du moment"
+    },
+    {
+      movies: topRated.results as Movie[],
+      title: "Mieux notés",
+      subtitle: "Les favoris du public"
+    },
+    {
+      movies: upcoming.results as Movie[],
+      title: "À venir",
+      subtitle: "Ne les manquez pas bientôt"
+    },
+    {
+      movies: nowPlaying.results as Movie[],
+      title: "En salles",
+      subtitle: "Actuellement au cinéma"
+    }
+  ];
+
+  return <FilmsPageWrapper moviesData={moviesData} />;
 }

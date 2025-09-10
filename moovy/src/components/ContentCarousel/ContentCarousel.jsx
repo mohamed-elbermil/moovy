@@ -17,7 +17,7 @@ const openTrailer = async (movieId) => {
     }
   };
 
-  const ContentCarousel = ({movies, title, subtitle}) => {
+  const ContentCarousel = ({movies, title, subtitle, onMovieClick}) => {
     const moviesRef = useRef(null);
   
     const scrollLeft = () => {
@@ -39,7 +39,12 @@ const openTrailer = async (movieId) => {
           <div className={styles.container} >
             <div className={styles.movies} ref={moviesRef}>
               {movies.map((movie, index) => (
-                <div key={movie.id || index} className={styles.movie}>
+                <div 
+                  key={movie.id || index} 
+                  className={styles.movie}
+                  onClick={() => onMovieClick && onMovieClick(movie)}
+                  style={{ cursor: onMovieClick ? 'pointer' : 'default' }}
+                >
                   {movie.poster_path ? (
                     <img 
                       src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}

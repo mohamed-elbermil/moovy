@@ -4,12 +4,16 @@ import Link from "next/link";
 import Btn from "../Button/Button";
 import Image from "next/image";
 import Logo from "../../assets/images/logo.svg";
+import AuthModal from "../AuthModal/AuthModal";
+import { useAuth } from "../../contexts/AuthContext";
 
 export default function Navbar() {
+  const { user, logout } = useAuth();
   const [isOpen, setIsOpen] = useState(false);
   const [query, setQuery] = useState("");
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
   const debounceRef = useRef(null);
   const abortRef = useRef(null);
 
@@ -127,8 +131,25 @@ export default function Navbar() {
 </div>
           )}
         </div>
-        <Btn>Connexion</Btn>
+        {user ? (
+          <div className={styles.userMenu}>
+            <span className={styles.userName}>Bonjour, {user.name}</span>
+            <Link href="/profil" className={styles.profileLink}>
+              Mon Profil
+            </Link>
+            <button onClick={logout} className={styles.logoutButton}>
+              Déconnexion
+            </button>
+          </div>
+        ) : (
+          <Btn onClick={() => setIsAuthModalOpen(true)}>Connexion</Btn>
+        )}
       </div>
+      
+      <AuthModal 
+        isOpen={isAuthModalOpen} 
+        onClose={() => setIsAuthModalOpen(false)} 
+      />
     </nav>
   );
 }
