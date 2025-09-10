@@ -85,7 +85,7 @@ const Header = () => {
           <p className={styles.infos}>{genres}</p>
           <p className={styles.infos}>{runtime}</p>
         </div>
-        <p className="paragraph">{description}</p>
+        <p className={styles.description}>{description}</p>
         <Btn variant="play">Lecture</Btn>
       </div>
 

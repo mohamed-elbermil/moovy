@@ -2,6 +2,7 @@
 
 import "../styles/reset.css";
 import "../styles/globals.css";
+import "../styles/base.css";
 import { useState, useEffect } from "react";
 import Navbar from "@/components/Navbar/Navbar";
 import Header from "@/components/Header/Header";
@@ -23,6 +24,8 @@ export default function RootLayout({
   return (
     <html lang="fr">
       <head>
+        <link rel="icon" href="/favicon.ico" type="image/ico" />
+        <link rel="shortcut icon" href="/favicon.ico" type="image/ico" />
         <link
           rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"

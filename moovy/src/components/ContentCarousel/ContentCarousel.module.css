@@ -36,8 +36,8 @@
 }
 
 .movie img, .activeCard {
-    width: 16em;
-    height: 25em;
+    width: 21em;
+    height: 34em;
 }
 .activeCard {
     position: absolute;
