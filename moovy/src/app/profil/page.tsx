@@ -70,7 +70,7 @@ export default function ProfilPage() {
           <h3>Mes Films Consultés</h3>
           {watchedMovies.length === 0 ? (
             <div className={styles.emptyState}>
-              <p>Vous n'avez pas encore consulté de films.</p>
+              <p>Vous n&apos;avez pas encore consulté de films.</p>
               <p>Explorez notre catalogue pour commencer !</p>
             </div>
           ) : (
@@ -85,7 +85,7 @@ export default function ProfilPage() {
                     />
                   ) : (
                     <div className={styles.placeholderPoster}>
-                      <span>Pas d'image</span>
+                      <span>Pas d&apos;image</span>
                     </div>
                   )}
                   <div className={styles.movieInfo}>

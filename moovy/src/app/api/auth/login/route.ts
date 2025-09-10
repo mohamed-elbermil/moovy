@@ -11,6 +11,9 @@ if (!MONGODB_URI) {
   throw new Error('MONGODB_URI is not defined');
 }
 
+// Type assertion pour TypeScript
+const mongoUri: string = MONGODB_URI;
+
 export async function POST(request: NextRequest) {
   try {
     const { email, password } = await request.json();
@@ -22,7 +25,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const client = new MongoClient(MONGODB_URI);
+    const client = new MongoClient(mongoUri);
     await client.connect();
 
     const db = client.db(MONGODB_DB);

@@ -21,7 +21,7 @@ export default async function Home() {
 
   const data = await res.json();
 
-  const getMoviesByGenreNames = (genreNames) => {
+  const getMoviesByGenreNames = (genreNames: string[]) => {
     const genreIds = genreNames.map(
       (name) =>
         Number(Object.keys(genreMap).find((id) => genreMap[id] === name))

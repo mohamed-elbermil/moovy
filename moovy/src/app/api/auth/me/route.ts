@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { MongoClient } from 'mongodb';
+import { MongoClient, ObjectId } from 'mongodb';
 import jwt from 'jsonwebtoken';
 
 const MONGODB_URI = process.env.MONGODB_URI;
@@ -9,6 +9,9 @@ const JWT_SECRET = process.env.JWT_SECRET || 'your-secret-key';
 if (!MONGODB_URI) {
   throw new Error('MONGODB_URI is not defined');
 }
+
+// Type assertion pour TypeScript
+const mongoUri: string = MONGODB_URI;
 
 export async function GET(request: NextRequest) {
   try {
@@ -22,16 +25,16 @@ export async function GET(request: NextRequest) {
     }
 
     // Vérifier le token
-    const decoded = jwt.verify(token, JWT_SECRET) as any;
+    const decoded = jwt.verify(token, JWT_SECRET) as { userId: string; email: string; name: string };
     
-    const client = new MongoClient(MONGODB_URI);
+    const client = new MongoClient(mongoUri);
     await client.connect();
 
     const db = client.db(MONGODB_DB);
     const users = db.collection('users');
 
     const user = await users.findOne(
-      { _id: new MongoClient.ObjectId(decoded.userId) },
+      { _id: new ObjectId(decoded.userId) },
       { projection: { password: 0 } }
     );
 

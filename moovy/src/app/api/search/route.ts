@@ -30,7 +30,7 @@ export async function GET(request: Request) {
     }
     const data = await res.json();
     return NextResponse.json({ results: Array.isArray(data.results) ? data.results : [] });
-  } catch (error) {
+  } catch {
     return NextResponse.json({ error: "Erreur de réseau" }, { status: 500 });
   }
 }

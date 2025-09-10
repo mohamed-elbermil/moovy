@@ -86,7 +86,7 @@ const Header = () => {
           <p className={styles.infos}>{runtime}</p>
         </div>
         <p className={styles.description}>{description}</p>
-        <Btn variant="play">Lecture</Btn>
+        <Btn variant="play" href="https://www.youtube.com/watch?v=goTO1rR_FWQ&ab_channel=Paramount%2BFrance" target="_blank">Lecture</Btn>
       </div>
 
       {serieData.backdrop_path && (
