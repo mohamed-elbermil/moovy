@@ -142,7 +142,7 @@ export default function Navbar() {
             </button>
           </div>
         ) : (
-          <Btn onClick={() => setIsAuthModalOpen(true)}>Connexion</Btn>
+          <Btn onClick={() => setIsAuthModalOpen(true)} className={styles.loginButton}>Connexion</Btn>
         )}
       </div>
       

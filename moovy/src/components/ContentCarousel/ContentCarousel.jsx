@@ -2,10 +2,12 @@
 import { useRef } from "react"
 import styles from "../ContentCarousel/ContentCarousel.module.css"
 import genreMap from "../../data/genreMap"
+import tvGenreMap from "../../data/tvGenreMap"
 import Btn from "../Button/Button"
 
-const openTrailer = async (movieId) => {
-    const response = await fetch(`https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=659ebb575947822b54330a69ba2a1f3f`);
+const openTrailer = async (id, mediaType = 'movie') => {
+    const path = mediaType === 'tv' ? 'tv' : 'movie'
+    const response = await fetch(`https://api.themoviedb.org/3/${path}/${id}/videos?api_key=659ebb575947822b54330a69ba2a1f3f`);
     const data = await response.json();
     const trailer = data.results.find(
       video => video.site === "YouTube" && video.type === "Trailer"
@@ -17,7 +19,10 @@ const openTrailer = async (movieId) => {
     }
   };
 
-  const ContentCarousel = ({movies, title, subtitle, onMovieClick}) => {
+  /**
+   * @param {{ movies: any[], title: string, subtitle: string, onMovieClick?: (movie: any) => void }} props
+   */
+  const ContentCarousel = ({movies, title, subtitle, onMovieClick = undefined}) => {
     const moviesRef = useRef(null);
   
     const scrollLeft = () => {
@@ -45,19 +50,24 @@ const openTrailer = async (movieId) => {
                   onClick={() => onMovieClick && onMovieClick(movie)}
                   style={{ cursor: onMovieClick ? 'pointer' : 'default' }}
                 >
+                  {(() => {
+                    const isSerie = movie?.media_type === 'tv' || (!!movie?.name && !movie?.title);
+                    const typeLabel = isSerie ? 'Série' : 'Film';
+                    return <div className={styles.badgeType}>{typeLabel}</div>
+                  })()}
                   {movie.poster_path ? (
                     <img 
                       src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-                      alt={movie.title}
+                      alt={movie.title || movie.name}
                       className={styles.poster}
                     />
                   ) : (
-                    <div>Pas d'affiche pour ce film 🙄</div>
+                    <div>Pas d'affiche 🙄</div>
                   )}
                   <div className={styles.activeCard}>
                     <span className={styles.genres}>
-                      {movie.genre_ids
-                        ?.map(id => genreMap[id])
+                      {(movie.genre_ids || [])
+                        .map(id => (movie?.media_type === 'tv' || (!!movie?.name && !movie?.title)) ? tvGenreMap[id] : genreMap[id])
                         .filter(Boolean)
                         .slice(0,2)
                         .map((genre, index) => (
@@ -66,19 +76,19 @@ const openTrailer = async (movieId) => {
                           </div>
                       ))}
                     </span>
-                    <p className={styles.title}>{movie.title}</p>                  
+                    <p className={styles.title}>{movie.title || movie.name}</p>                  
                     <p className={
-                      movie.overview.length === 0
+                      (movie.overview || '').length === 0
                         ? styles.noneOverview
                         : styles.overview
                       }>
-                      {movie.overview.length === 0
+                      {(movie.overview || '').length === 0
                         ? "Pas de résumé disponible"
-                        :movie.overview.length > 200
-                            ? movie.overview.slice(0,100) + " ..."
-                            : movie.overview}
+                        : (movie.overview || '').length > 200
+                            ? (movie.overview || '').slice(0,100) + " ..."
+                            : (movie.overview || '')}
                     </p>
-                    <Btn className={styles.btnTrailer} onClick={() => openTrailer(movie.id)}>Voir Trailer</Btn>
+                    <Btn className={styles.btnTrailer} onClick={() => openTrailer(movie.id, (movie?.media_type === 'tv' || (!!movie?.name && !movie?.title)) ? 'tv' : 'movie')}>Voir Trailer</Btn>
                   </div>
                 </div>
               ))}

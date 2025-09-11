@@ -1,5 +1,6 @@
 import ContentCarousel from "@/components/ContentCarousel/ContentCarousel";
 import genreMap from "@/data/genreMap";
+import tvGenreMap from "@/data/tvGenreMap";
 
 function slugify(name: string) {
   return name
@@ -24,24 +25,33 @@ export default async function CategoryPage({ params }: { params: { slug: string 
     return <main>Catégorie inconnue</main>;
   }
 
-  const res = await fetch(
-    `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&language=fr&with_genres=${genreId}&sort_by=popularity.desc`,
-    { cache: "no-store" }
-  );
+  const [resMovies, resTv] = await Promise.all([
+    fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&language=fr&with_genres=${genreId}&sort_by=popularity.desc`, { cache: "no-store" }),
+    fetch(`https://api.themoviedb.org/3/discover/tv?api_key=${API_KEY}&language=fr&with_genres=${genreId}&sort_by=popularity.desc`, { cache: "no-store" })
+  ]);
 
-  if (!res.ok) {
-    return <main>Erreur lors du chargement des films</main>;
+  if (!resMovies.ok && !resTv.ok) {
+    return <main>Erreur lors du chargement des contenus</main>;
   }
 
-  const data = await res.json();
+  const [moviesData, tvData] = await Promise.all([
+    resMovies.ok ? resMovies.json() : Promise.resolve({ results: [] }),
+    resTv.ok ? resTv.json() : Promise.resolve({ results: [] })
+  ]);
+
+  const tvWithType = (tvData.results || []).map((t: any) => ({ ...t, media_type: 'tv' }));
+  const merged = [
+    ...(moviesData.results || []),
+    ...tvWithType
+  ];
   const label = (genreMap as Record<string, string>)[String(genreId)];
 
   return (
     <main>
       <ContentCarousel
-        movies={data.results}
+        movies={merged}
         title={label}
-        subtitle={`Films de ${label}`}
+        subtitle={`Films et séries de ${label}`}
       />
     </main>
   );

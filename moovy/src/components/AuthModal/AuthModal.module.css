@@ -27,20 +27,19 @@
 
 .closeButton {
   position: absolute;
-  top: 1rem;
-  right: 1rem;
-  background: none;
-  border: none;
-  color: #fff;
-  font-size: 2rem;
+  background: #777998!important;
+  width: 2em;
+  height: 2em;
+  font-size: 23px;
+  border-radius: 5em;
+  right: 1em;
   cursor: pointer;
-  padding: 0.5rem;
-  border-radius: 50%;
-  transition: background-color 0.3s ease;
+  transition: all 0.3s ease;
 }
 
+
 .closeButton:hover {
-  background: rgba(255, 255, 255, 0.1);
+  background: #ffffff9a!important;
 }
 
 .header {
@@ -82,6 +81,7 @@
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  margin: 1em 0
 }
 
 .inputGroup label {
@@ -92,6 +92,7 @@
 
 .inputGroup input {
   padding: 0.8rem 1rem;
+  width: auto;
   border: 2px solid rgba(255, 255, 255, 0.1);
   border-radius: 10px;
   background: rgba(255, 255, 255, 0.05);
@@ -112,12 +113,11 @@
 }
 
 .submitButton {
-  background: linear-gradient(45deg, #c3b5db, #9c88ff);
-  color: #fff;
+  color: #000000;
   border: none;
-  padding: 1rem 2rem;
+  padding: 12px 0;
   border-radius: 10px;
-  font-size: 1.1rem;
+  font-size: 17px;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -142,18 +142,15 @@
 }
 
 .switchButton {
-  background: none;
-  border: none;
-  color: #c3b5db;
+  border-radius: 44px;
+  padding: 13px 32px;
+  color: #ced1da;
+  background: #0b1022;
   cursor: pointer;
   font-weight: 600;
   text-decoration: underline;
-  margin-left: 0.5rem;
+  margin-left: 1em;
   transition: color 0.3s ease;
-}
-
-.switchButton:hover {
-  color: #9c88ff;
 }
 
 /* Animation d'ouverture */
