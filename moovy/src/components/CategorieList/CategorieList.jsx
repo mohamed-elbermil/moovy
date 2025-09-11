@@ -1,5 +1,6 @@
 import genreMap from "../../data/genreMap";
 import styles from "./CategorieList.module.css";
+import Link from "next/link";
 
 export default function CategorieList({ title, subtitle, movies }) {
   const usedPosters = new Set();
@@ -25,8 +26,15 @@ export default function CategorieList({ title, subtitle, movies }) {
             const poster = `https://image.tmdb.org/t/p/w500${moviesInCategory[0].poster_path}`;
             usedPosters.add(moviesInCategory[0].poster_path);
 
+            const slug = name
+              .toLowerCase()
+              .normalize("NFD")
+              .replace(/[\u0300-\u036f]/g, "")
+              .replace(/[^a-z0-9]+/g, "-")
+              .replace(/(^-|-$)+/g, "");
+
             return (
-              <div className={styles.card} key={id}>
+              <Link href={`/categories/${slug}`} key={id} className={styles.card}>
                 <span>{name}</span>
                 <span>{moviesInCategory.length} films & séries</span>
                 <div
@@ -37,7 +45,7 @@ export default function CategorieList({ title, subtitle, movies }) {
                     backgroundPosition: "center"
                   }}
                 />
-              </div>
+              </Link>
             );
           })}
         </div>

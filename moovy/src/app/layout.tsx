@@ -4,6 +4,7 @@ import "../styles/reset.css";
 import "../styles/globals.css";
 import "../styles/base.css";
 import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import Navbar from "@/components/Navbar/Navbar";
 import Header from "@/components/Header/Header";
 import Loader from "@/components/Loader/Loader";
@@ -20,6 +21,8 @@ export default function RootLayout({
     const timer = setTimeout(() => setLoading(false), 1500);
     return () => clearTimeout(timer);
   }, []);
+  const pathname = usePathname();
+  const hideHeader = pathname?.startsWith("/categories");
 
   return (
     <html lang="fr">
@@ -40,7 +43,7 @@ export default function RootLayout({
         ) : (
           <AuthProvider>
             <Navbar />
-            <Header />
+            {!hideHeader && <Header />}
             {children}
           </AuthProvider>
         )}
