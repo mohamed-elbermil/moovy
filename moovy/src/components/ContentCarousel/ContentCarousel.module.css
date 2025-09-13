@@ -37,13 +37,10 @@
 }
 
 .movie:hover .activeCard {
- 
     display: flex;
     flex-direction: column;
-    
     visibility: visible;
     opacity: 1;
-
     justify-content: space-between;
 }
 

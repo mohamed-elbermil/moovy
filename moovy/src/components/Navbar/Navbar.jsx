@@ -98,6 +98,7 @@ export default function Navbar() {
             placeholder="Rechercher un film..."
             value={query}
             onChange={(e) => setQuery(e.target.value)}
+            className={styles.searchInput}
           />
           <i className="fa-solid fa-magnifying-glass"></i>
 

@@ -29,7 +29,7 @@
   padding: 12px 18px!important;
 }
 
-.navbar input {
+.searchInput {
   width: 8em;
   transition-duration: .4s;
   background: #ffffff57;
@@ -38,7 +38,7 @@
   color: #ffffffab;
 }
 
-.navbar input:focus {
+.searchInput:focus {
   width: 20em;
   background: linear-gradient(45deg, #ffffff3c, #ffffff96);
 }
