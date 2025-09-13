@@ -27,6 +27,7 @@
 
 .loginButton {
   padding: 12px 18px!important;
+  cursor: pointer;
 }
 
 .searchInput {

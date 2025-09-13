@@ -17,6 +17,34 @@ export default function Navbar() {
   const debounceRef = useRef(null);
   const abortRef = useRef(null);
 
+  // Fonction pour récupérer et rediriger vers le trailer YouTube
+  const handleMovieClick = async (movie) => {
+    try {
+      setLoading(true);
+      const response = await fetch(`/api/movies/${movie.id}/videos`);
+      const data = await response.json();
+      
+      if (data.trailers && data.trailers.length > 0) {
+        // Rediriger vers le trailer YouTube
+        const trailer = data.trailers[0];
+        window.open(`https://www.youtube.com/watch?v=${trailer.key}`, '_blank');
+      } else {
+        // Si pas de trailer, rechercher sur YouTube
+        const searchQuery = encodeURIComponent(`${movie.title} trailer officiel`);
+        window.open(`https://www.youtube.com/results?search_query=${searchQuery}`, '_blank');
+      }
+    } catch (error) {
+      console.error('Erreur lors de la récupération du trailer:', error);
+      // Fallback: recherche YouTube directe
+      const searchQuery = encodeURIComponent(`${movie.title} trailer officiel`);
+      window.open(`https://www.youtube.com/results?search_query=${searchQuery}`, '_blank');
+    } finally {
+      setLoading(false);
+      setQuery(''); // Vider la recherche après le clic
+      setMovies([]); // Masquer les résultats
+    }
+  };
+
   useEffect(() => {
     if (query.trim() === "") {
       setMovies([]);
@@ -113,7 +141,7 @@ export default function Navbar() {
   {!loading && movies.length > 0 && (
     <ul>
       {movies.map((movie) => (
-        <li key={movie.id} onClick={() => setQuery(movie.title)}>
+        <li key={movie.id} onClick={() => handleMovieClick(movie)}>
           {movie.poster_path ? (
             <img
               src={`https://image.tmdb.org/t/p/w92${movie.poster_path}`}
