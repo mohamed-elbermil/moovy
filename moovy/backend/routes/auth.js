@@ -4,6 +4,8 @@ dotenv.config();
 import express from "express";
 import bcrypt from "bcryptjs";
 import { MongoClient } from "mongodb";
+import jwt from "jsonwebtoken";
+
 
 const router = express.Router();
 
@@ -96,6 +98,13 @@ router.post("/login", async (req, res) => {
       await client.close();
       return res.status(400).json({ error: "Mot de passe incorrect" });
     }
+
+    // Génère le JWT **après avoir défini user**
+    const token = jwt.sign(
+        { id: user._id, email: user.email },
+        process.env.JWT_SECRET,
+        { expiresIn: "1d" }
+      );
 
     await client.close();
 
