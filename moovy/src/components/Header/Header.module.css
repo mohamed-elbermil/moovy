@@ -4,14 +4,6 @@
     overflow: hidden;
     padding: 0 12em;
   }
-
-  .shadowsBanner {
-    position: relative;
-    z-index: 99999;
-    background: red;
-    height: 2em;
-    width: 2em;
-  }
   
   .header::before {
     content: "";
