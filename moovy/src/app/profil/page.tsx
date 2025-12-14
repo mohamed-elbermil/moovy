@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { useAuth } from "@/contexts/AuthContext";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 import styles from "./page.module.css";
 
 export default function ProfilPage() {
@@ -85,9 +86,11 @@ export default function ProfilPage() {
               {watchedMovies.map((movie, index) => (
                 <div key={`${movie.movieId}-${index}`} className={styles.movieCard}>
                   {movie.poster_path ? (
-                    <img
+                    <Image
                       src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`}
                       alt={movie.title}
+                      width={300}
+                      height={450}
                       className={styles.moviePoster}
                     />
                   ) : (

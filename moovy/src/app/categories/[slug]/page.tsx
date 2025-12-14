@@ -1,6 +1,5 @@
 import ContentCarousel from "@/components/ContentCarousel/ContentCarousel";
 import genreMap from "@/data/genreMap";
-import tvGenreMap from "@/data/tvGenreMap";
 
 function slugify(name: string) {
   return name

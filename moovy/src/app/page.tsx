@@ -9,7 +9,6 @@ type MovieResult = { genre_ids: number[] };
 
 export default async function Home() {
   const API_KEY = process.env.TMDB_API_KEY;
-  console.log("API_KEY =", API_KEY);
 
   const res = await fetch(
     `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&language=fr&sort_by=popularity.desc`,

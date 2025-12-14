@@ -6,18 +6,21 @@ import tvGenreMap from "../../data/tvGenreMap"
 import Btn from "../Button/Button"
 
 const openTrailer = async (id, mediaType = 'movie') => {
-    const path = mediaType === 'tv' ? 'tv' : 'movie'
-    const response = await fetch(`https://api.themoviedb.org/3/${path}/${id}/videos?api_key=659ebb575947822b54330a69ba2a1f3f`);
+  try {
+    const response = await fetch(`/api/movies/${id}/videos`, { cache: 'no-store' });
     const data = await response.json();
-    const trailer = data.results.find(
-      video => video.site === "YouTube" && video.type === "Trailer"
+    const pick = (data?.trailers || data?.allVideos || []).find(
+      (video) => video?.site === "YouTube" && video?.type === "Trailer"
     );
-    if(trailer) {
-      window.open(`https://www.youtube.com/watch?v=${trailer.key}`, "_blank");
+    if (pick?.key) {
+      window.open(`https://www.youtube.com/watch?v=${pick.key}`, "_blank");
     } else {
       alert("Trailer non disponible");
     }
-  };
+  } catch {
+    alert("Erreur lors de la récupération du trailer");
+  }
+};
 
   /**
    * @param {{ movies: any[], title: string, subtitle: string, onMovieClick?: (movie: any) => void }} props
