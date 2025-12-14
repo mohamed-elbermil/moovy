@@ -17,9 +17,10 @@ function getGenreIdFromSlug(slug: string): number | null {
   return Number(entry[0]);
 }
 
-export default async function CategoryPage({ params }: { params: { slug: string } }) {
+export default async function CategoryPage(context: { params: Promise<{ slug: string }> }) {
   const API_KEY = process.env.TMDB_API_KEY;
-  const genreId = getGenreIdFromSlug(params.slug);
+  const { slug } = await context.params;
+  const genreId = getGenreIdFromSlug(slug);
 
   if (!genreId) {
     return <main>Catégorie inconnue</main>;
@@ -39,7 +40,7 @@ export default async function CategoryPage({ params }: { params: { slug: string 
     resTv.ok ? resTv.json() : Promise.resolve({ results: [] })
   ]);
 
-  const tvWithType = (tvData.results || []).map((t: any) => ({ ...t, media_type: 'tv' }));
+  const tvWithType = (tvData.results || []).map((t: unknown) => ({ ...(t as Record<string, unknown>), media_type: 'tv' }));
   const merged = [
     ...(moviesData.results || []),
     ...tvWithType

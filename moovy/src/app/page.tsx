@@ -5,6 +5,8 @@ import Footer from "../components/Footer/Footer"
 import "../styles/base.css";
 import genreMap from "../data/genreMap";
 
+type MovieResult = { genre_ids: number[] };
+
 export default async function Home() {
   const API_KEY = process.env.TMDB_API_KEY;
   console.log("API_KEY =", API_KEY);
@@ -19,12 +21,14 @@ export default async function Home() {
     return <main>Erreur lors du chargement des films</main>;
   }
 
-  const data = await res.json();
+  const data = (await res.json()) as { results: MovieResult[] };
 
   const getMoviesByGenreNames = (genreNames: string[]) => {
     const genreIds = genreNames.map(
       (name) =>
-        Number(Object.keys(genreMap).find((id) => genreMap[id] === name))
+        Number(
+          Object.keys(genreMap).find((id) => (genreMap as Record<string, string>)[id] === name)
+        )
     );
 
     return data.results.filter((movie) =>
@@ -70,9 +74,9 @@ export default async function Home() {
           return (
             <ContentCarousel
               key={index}
-              movies={getMoviesByGenreNames(section.names)}
-              title={section.title}
-              subtitle={section.subtitle}
+              movies={getMoviesByGenreNames(section.names as string[])}
+              title={section.title as string}
+              subtitle={section.subtitle as string}
             />
           );
         }

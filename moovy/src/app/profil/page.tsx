@@ -8,7 +8,14 @@ import styles from "./page.module.css";
 export default function ProfilPage() {
   const { user, loading } = useAuth();
   const router = useRouter();
-  const [watchedMovies, setWatchedMovies] = useState([]);
+  type WatchedMovie = {
+    movieId: string;
+    title: string;
+    poster_path?: string | null;
+    release_date?: string;
+    watchedAt: string | Date;
+  };
+  const [watchedMovies, setWatchedMovies] = useState<WatchedMovie[]>([]);
   const [isLoadingMovies, setIsLoadingMovies] = useState(true);
 
   useEffect(() => {

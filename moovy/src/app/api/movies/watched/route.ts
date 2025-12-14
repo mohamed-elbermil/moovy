@@ -6,15 +6,17 @@ const MONGODB_URI = process.env.MONGODB_URI;
 const MONGODB_DB = process.env.MONGODB_DB || 'moovy';
 const JWT_SECRET = process.env.JWT_SECRET || 'your-secret-key';
 
-if (!MONGODB_URI) {
-  throw new Error('MONGODB_URI is not defined');
-}
-
-// Type assertion pour TypeScript
-const mongoUri: string = MONGODB_URI;
+// Pas d'assertion au chargement pour éviter les erreurs de build
 
 export async function POST(request: NextRequest) {
   try {
+    if (!MONGODB_URI) {
+      return NextResponse.json(
+        { error: 'Configuration serveur manquante (MONGODB_URI)' },
+        { status: 500 }
+      );
+    }
+
     const token = request.headers.get('authorization')?.replace('Bearer ', '');
     
     if (!token) {
@@ -34,7 +36,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const client = new MongoClient(mongoUri);
+    const client = new MongoClient(MONGODB_URI!);
     await client.connect();
 
     const db = client.db(MONGODB_DB);
@@ -74,6 +76,13 @@ export async function POST(request: NextRequest) {
 
 export async function GET(request: NextRequest) {
   try {
+    if (!MONGODB_URI) {
+      return NextResponse.json(
+        { error: 'Configuration serveur manquante (MONGODB_URI)' },
+        { status: 500 }
+      );
+    }
+
     const token = request.headers.get('authorization')?.replace('Bearer ', '');
     
     if (!token) {
@@ -85,7 +94,7 @@ export async function GET(request: NextRequest) {
 
     const decoded = jwt.verify(token, JWT_SECRET) as { userId: string; email: string; name: string };
 
-    const client = new MongoClient(mongoUri);
+    const client = new MongoClient(MONGODB_URI!);
     await client.connect();
 
     const db = client.db(MONGODB_DB);

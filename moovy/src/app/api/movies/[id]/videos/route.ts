@@ -1,10 +1,18 @@
 import { NextResponse } from "next/server";
 
+interface VideoResult {
+  site: string;
+  type: string;
+  official?: boolean;
+  like_count?: number;
+  key?: string;
+}
+
 export async function GET(
   request: Request,
-  { params }: { params: { id: string } }
+  context: { params: Promise<{ id: string }> }
 ) {
-  const movieId = params.id;
+  const { id: movieId } = await context.params;
   const apiKey = process.env.TMDB_API_KEY;
 
   if (!apiKey) {
@@ -32,21 +40,23 @@ export async function GET(
       );
     }
     
-    const data = await res.json();
+    const data = (await res.json()) as { results?: VideoResult[] };
     
     // Filtrer pour ne garder que les vidéos YouTube de type "Trailer"
-    const trailers = data.results?.filter((video: any) => 
+    const trailers = (data.results ?? []).filter((video: VideoResult) => 
       video.site === "YouTube" && 
       video.type === "Trailer" &&
       video.official === true
-    ) || [];
+    );
 
     // Trier par popularité (plus de likes = plus populaire)
-    trailers.sort((a: any, b: any) => (b.like_count || 0) - (a.like_count || 0));
+    trailers.sort(
+      (a: VideoResult, b: VideoResult) => (b.like_count ?? 0) - (a.like_count ?? 0)
+    );
 
     return NextResponse.json({ 
-      trailers: trailers.slice(0, 1), // Retourner seulement le meilleur trailer
-      allVideos: data.results || []
+      trailers: trailers.slice(0, 1),
+      allVideos: data.results ?? []
     });
   } catch (error) {
     console.error("Erreur lors de la récupération des vidéos:", error);
