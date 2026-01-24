@@ -1,5 +1,6 @@
 import ContentCarousel from "@/components/ContentCarousel/ContentCarousel";
 import genreMap from "@/data/genreMap";
+import Link from "next/link";
 
 function slugify(name: string) {
   return name
@@ -16,6 +17,17 @@ function getGenreIdFromSlug(slug: string): number | null {
   return Number(entry[0]);
 }
 
+type TMDbItem = {
+  id: number;
+  title?: string;
+  name?: string;
+  poster_path?: string | null;
+  overview?: string;
+  vote_average?: number;
+  genre_ids?: number[];
+  media_type?: "movie" | "tv";
+};
+
 export default async function CategoryPage(context: { params: Promise<{ slug: string }> }) {
   const API_KEY = process.env.TMDB_API_KEY;
   const { slug } = await context.params;
@@ -25,34 +37,102 @@ export default async function CategoryPage(context: { params: Promise<{ slug: st
     return <main>Catégorie inconnue</main>;
   }
 
-  const [resMovies, resTv] = await Promise.all([
-    fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&language=fr&with_genres=${genreId}&sort_by=popularity.desc`, { cache: "no-store" }),
-    fetch(`https://api.themoviedb.org/3/discover/tv?api_key=${API_KEY}&language=fr&with_genres=${genreId}&sort_by=popularity.desc`, { cache: "no-store" })
+  const [resMovies, resTv, resTopRated] = await Promise.all([
+    fetch(
+      `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&language=fr&with_genres=${genreId}&sort_by=popularity.desc`,
+      { cache: "no-store" }
+    ),
+    fetch(
+      `https://api.themoviedb.org/3/discover/tv?api_key=${API_KEY}&language=fr&with_genres=${genreId}&sort_by=popularity.desc`,
+      { cache: "no-store" }
+    ),
+    fetch(
+      `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&language=fr&with_genres=${genreId}&sort_by=vote_average.desc&vote_count.gte=200`,
+      { cache: "no-store" }
+    ),
   ]);
 
-  if (!resMovies.ok && !resTv.ok) {
-    return <main>Erreur lors du chargement des contenus</main>;
-  }
-
-  const [moviesData, tvData] = await Promise.all([
+  const [moviesData, tvData, topRatedData] = await Promise.all([
     resMovies.ok ? resMovies.json() : Promise.resolve({ results: [] }),
-    resTv.ok ? resTv.json() : Promise.resolve({ results: [] })
+    resTv.ok ? resTv.json() : Promise.resolve({ results: [] }),
+    resTopRated.ok ? resTopRated.json() : Promise.resolve({ results: [] }),
   ]);
 
-  const tvWithType = (tvData.results || []).map((t: unknown) => ({ ...(t as Record<string, unknown>), media_type: 'tv' }));
-  const merged = [
-    ...(moviesData.results || []),
-    ...tvWithType
+  const tvWithType: TMDbItem[] = (tvData.results || []).map((t: unknown) => ({
+    ...(t as Record<string, unknown>),
+    media_type: "tv",
+  })) as TMDbItem[];
+  const merged: TMDbItem[] = [
+    ...((moviesData.results || []) as TMDbItem[]),
+    ...tvWithType,
   ];
   const label = (genreMap as Record<string, string>)[String(genreId)];
+  const moviesCount = (moviesData.results || []).length;
+  const tvCount = tvWithType.length;
+  const totalCount = merged.length;
+  const suggestions = Object.values(genreMap)
+    .filter((name) => name !== label)
+    .slice(0, 8)
+    .map((name) => ({
+      name,
+      slug: slugify(name as string),
+    }));
 
   return (
     <main>
+      <section style={{ margin: "1.5em 0" }}>
+        <div className="title-container">
+          <span className="subtitle">Catégorie</span>
+          <h2 className="title-section">{label}</h2>
+        </div>
+        <div style={{ display: "flex", gap: 12, alignItems: "center", flexWrap: "wrap", color: "#c3b5db" }}>
+          <span style={{ fontSize: 14 }}>Total: {totalCount}</span>
+          <span style={{ fontSize: 14 }}>Films: {moviesCount}</span>
+          <span style={{ fontSize: 14 }}>Séries: {tvCount}</span>
+        </div>
+      </section>
+
       <ContentCarousel
-        movies={merged}
+        movies={merged as TMDbItem[]}
         title={label}
         subtitle={`Films et séries de ${label}`}
       />
+
+      <ContentCarousel
+        movies={(topRatedData.results || []) as TMDbItem[]}
+        title="Mieux notés"
+        subtitle={`Sélection ${label}`}
+      />
+
+      <ContentCarousel
+        movies={(merged as TMDbItem[]).filter((i) => !!i.poster_path).slice(0, 16)}
+        title={`Sélection dans ${label}`}
+        subtitle="À découvrir"
+      />
+
+      <section style={{ margin: "2em 0" }}>
+        <div className="title-container">
+          <span className="subtitle">Suggestions</span>
+          <h2 className="title-section">Catégories voisines</h2>
+        </div>
+        <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
+          {suggestions.map((s) => (
+            <Link
+              key={s.slug}
+              href={`/categories/${s.slug}`}
+              style={{
+                padding: "8px 14px",
+                borderRadius: 999,
+                border: "1px solid #c3b5db55",
+                color: "#c3b5db",
+                fontSize: 14,
+              }}
+            >
+              {s.name}
+            </Link>
+          ))}
+        </div>
+      </section>
     </main>
   );
 }
