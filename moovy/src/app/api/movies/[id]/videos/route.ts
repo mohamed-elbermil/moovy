@@ -1,4 +1,4 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
 interface VideoResult {
   site: string;
@@ -9,7 +9,7 @@ interface VideoResult {
 }
 
 export async function GET(
-  request: Request,
+  request: NextRequest,
   context: { params: Promise<{ id: string }> }
 ) {
   const { id: movieId } = await context.params;
@@ -29,7 +29,9 @@ export async function GET(
     );
   }
 
-  const url = `https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=${apiKey}&language=fr`;
+  const typeParam = new URL(request.url).searchParams.get("type");
+  const path = typeParam === "tv" ? "tv" : "movie";
+  const url = `https://api.themoviedb.org/3/${path}/${movieId}/videos?api_key=${apiKey}&language=fr`;
 
   try {
     const res = await fetch(url, { cache: "no-store" });

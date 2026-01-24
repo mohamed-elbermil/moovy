@@ -1,0 +1,31 @@
+ .categoryHeader {
+    margin: 1.5em 0;
+    display: grid;
+    gap: 8px;
+    /* background: #5b5bafa3; */
+    background: linear-gradient(45deg, #5b5baf, #9364d6);
+    width: max-content;
+    padding: 24px;
+    border-radius: 21px;
+
+ }
+ 
+ .categoryHeader :global(.title-container) {
+   margin-bottom: 6px;
+ }
+ 
+ .stats {
+   display: flex;
+   gap: 12px;
+   align-items: center;
+   flex-wrap: wrap;
+   color: #c3b5db;
+ }
+ 
+ .stat {
+   font-size: 14px;
+   padding: 6px 10px;
+   border-radius: 999px;
+   border: 1px solid rgba(195, 181, 219, 0.35);
+   background: rgba(255, 255, 255, 0.06);
+ }

@@ -1,6 +1,8 @@
 import ContentCarousel from "@/components/ContentCarousel/ContentCarousel";
 import genreMap from "@/data/genreMap";
 import Link from "next/link";
+import BannerTrailer from "@/components/BannerTrailer/BannerTrailer";
+import styles from "./page.module.css";
 
 function slugify(name: string) {
   return name
@@ -22,6 +24,7 @@ type TMDbItem = {
   title?: string;
   name?: string;
   poster_path?: string | null;
+  backdrop_path?: string | null;
   overview?: string;
   vote_average?: number;
   genre_ids?: number[];
@@ -70,6 +73,7 @@ export default async function CategoryPage(context: { params: Promise<{ slug: st
   const moviesCount = (moviesData.results || []).length;
   const tvCount = tvWithType.length;
   const totalCount = merged.length;
+  const candidate = merged.find((i) => !!i.id) as TMDbItem | undefined;
   const suggestions = Object.values(genreMap)
     .filter((name) => name !== label)
     .slice(0, 8)
@@ -80,15 +84,24 @@ export default async function CategoryPage(context: { params: Promise<{ slug: st
 
   return (
     <main>
-      <section style={{ margin: "1.5em 0" }}>
+      {candidate ? (
+        <BannerTrailer
+          id={candidate.id}
+          type={candidate.media_type === "tv" || (!!candidate.name && !candidate.title) ? "tv" : "movie"}
+          label={label}
+          backdrop={candidate.backdrop_path ?? null}
+        />
+      ) : null}
+
+      <section className={styles.categoryHeader}>
         <div className="title-container">
           <span className="subtitle">Catégorie</span>
           <h2 className="title-section">{label}</h2>
         </div>
-        <div style={{ display: "flex", gap: 12, alignItems: "center", flexWrap: "wrap", color: "#c3b5db" }}>
-          <span style={{ fontSize: 14 }}>Total: {totalCount}</span>
-          <span style={{ fontSize: 14 }}>Films: {moviesCount}</span>
-          <span style={{ fontSize: 14 }}>Séries: {tvCount}</span>
+        <div className={styles.stats}>
+          <span className={styles.stat}>Total: {totalCount}</span>
+          <span className={styles.stat}>Films: {moviesCount}</span>
+          <span className={styles.stat}>Séries: {tvCount}</span>
         </div>
       </section>
 

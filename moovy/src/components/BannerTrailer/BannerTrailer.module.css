@@ -1,0 +1,27 @@
+ .section {
+   margin: 1.5em 0;
+   border-radius: 12px;
+   overflow: hidden;
+   filter: blur(231px);
+ }
+ 
+ .ratio {
+   position: relative;
+   padding-top: 43vh;
+   overflow: hidden;
+ }
+ 
+ .frame {
+   position: absolute;
+   top: -10%;
+   left: -10%;
+   width: 120%;
+   height: 120%;
+   border: 0;
+   pointer-events: none;
+ }
+ 
+ .imageWrap {
+   position: relative;
+   height: 360px;
+ }

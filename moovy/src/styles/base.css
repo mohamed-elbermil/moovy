@@ -34,3 +34,8 @@
 section {
     margin: 7em 0;
 }
+
+.categoryHeader :global(.title-container) { 
+    margin-bottom: 6px; 
+    background: red;
+}
