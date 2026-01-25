@@ -8,6 +8,7 @@
     overflow: hidden;
 }
 
+
 .carousel {
     position: relative;
     margin: 2em 0;
@@ -42,6 +43,8 @@
     visibility: visible;
     opacity: 1;
     justify-content: space-between;
+    border: solid 2px #7571a9;
+
 }
 
 .movie img, .activeCard {
