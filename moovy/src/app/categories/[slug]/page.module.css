@@ -13,6 +13,10 @@
  .categoryHeader :global(.title-container) {
    margin-bottom: 6px;
  }
+
+ .categoryHeader :global(.subtitle) {
+    color: #daafff;
+ }
  
  .stats {
    display: flex;
@@ -23,9 +27,9 @@
  }
  
  .stat {
-   font-size: 14px;
-   padding: 6px 10px;
-   border-radius: 999px;
-   border: 1px solid rgba(195, 181, 219, 0.35);
-   background: rgba(255, 255, 255, 0.06);
+  font-size: 14px;
+  padding: 10px;
+  border-radius: 999px;
+  border: 1px solid rgb(195 181 219);
+  background: rgba(255, 255, 255, 0.06);
  }

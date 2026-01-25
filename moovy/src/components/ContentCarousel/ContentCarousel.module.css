@@ -49,6 +49,7 @@
     height: 34em;
     top:2px
 }
+
 .activeCard {
     position: absolute;
     visibility: hidden;
@@ -122,6 +123,34 @@
 }
 .btnTrailer:hover {
     background: #d0b6ff;
+}
+
+/* // RESPONSIVE */
+
+
+@media screen and (max-width:1550px) {
+    .movie img, .activeCard{
+        width: 13em;
+        height: 21em;
+        top: 2px;
+    }
+
+    .title {
+        font-size: 15px;
+    }
+
+    .genreItem {
+        font-size: 13px;
+    }
+
+    .overview  {
+        font-size: 12px;
+        line-height: 16px;
+    }
+
+    .genres {
+        gap: 4px;
+    }
 }
 
 @media screen and (max-width:425px) {
