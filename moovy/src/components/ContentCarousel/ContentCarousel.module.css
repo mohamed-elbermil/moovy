@@ -133,8 +133,8 @@
 
 @media screen and (max-width:1550px) {
     .movie img, .activeCard{
-        width: 13em;
-        height: 21em;
+        width: 14em;
+        height: 24em;
         top: 2px;
     }
 
