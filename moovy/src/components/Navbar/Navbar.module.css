@@ -24,6 +24,11 @@
   box-shadow: 0 0 10px #c3b5db;
 }
 
+.activeLink {
+  box-shadow: 0 0 12px #c3b5db, inset 0 0 8px #c3b5db;
+  border: 1px solid #c3b5db;
+}
+
 
 .loginButton {
   padding: 12px 18px!important;

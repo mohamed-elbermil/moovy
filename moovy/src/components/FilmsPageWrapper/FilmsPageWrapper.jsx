@@ -11,7 +11,7 @@ export default function FilmsPageWrapper({ moviesData }) {
     if (user) {
       addWatchedMovie({
         movieId: movie.id,
-        title: movie.title,
+        title: movie.title || movie.name,
         poster_path: movie.poster_path,
         release_date: movie.release_date
       });

@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import styles from "./Navbar.module.css";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import Btn from "../Button/Button";
 import Image from "next/image";
 import Logo from "../../assets/images/logo.svg";
@@ -16,6 +17,7 @@ export default function Navbar() {
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
   const debounceRef = useRef(null);
   const abortRef = useRef(null);
+  const pathname = usePathname();
 
   // Fonction pour récupérer et rediriger vers le trailer YouTube
   const handleMovieClick = async (movie) => {
@@ -118,8 +120,8 @@ export default function Navbar() {
       {/* Liens de navigation */}
       <div className={`${styles.links} ${isOpen ? styles.open : ""}`}>
         <Link href="/">Accueil</Link>
-        <Link href="/films">Films</Link>
-        <Link href="/">Séries</Link>
+        <Link href="/films" className={pathname?.startsWith("/films") ? styles.activeLink : undefined}>Films</Link>
+        <Link href="/series" className={pathname?.startsWith("/series") ? styles.activeLink : undefined}>Séries</Link>
         <div className={styles.search}>
           <input
             type="search"
