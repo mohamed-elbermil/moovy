@@ -23,6 +23,7 @@ export default function RootLayout({
   }, []);
   const pathname = usePathname();
   const hideHeader = pathname?.startsWith("/categories");
+  const replaceHeaderWithTrailer = pathname?.startsWith("/films") || pathname?.startsWith("/series");
 
   return (
     <html lang="fr">
@@ -43,7 +44,7 @@ export default function RootLayout({
         ) : (
           <AuthProvider>
             <Navbar />
-            {!hideHeader && <Header />}
+            {!hideHeader && !replaceHeaderWithTrailer && <Header />}
             {children}
           </AuthProvider>
         )}
