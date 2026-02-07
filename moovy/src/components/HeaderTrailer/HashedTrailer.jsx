@@ -1,6 +1,7 @@
  "use client";
  import { useEffect, useState } from "react";
  import styles from "./HashedTrailer.module.css";
+import { buildTrailerApiUrl } from "@/lib/media";
  
  export default function HashedTrailer({ id, mediaType }) {
    const [videoKey, setVideoKey] = useState(null);
@@ -11,8 +12,7 @@
      const load = async () => {
        try {
          setLoading(true);
-         const q = mediaType === "tv" ? "?type=tv" : "";
-         const res = await fetch(`/api/movies/${id}/videos${q}`, { cache: "no-store" });
+        const res = await fetch(buildTrailerApiUrl(id, mediaType), { cache: "no-store" });
          if (!res.ok) {
            setVideoKey(null);
            return;

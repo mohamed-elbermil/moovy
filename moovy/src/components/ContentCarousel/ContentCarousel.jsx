@@ -4,11 +4,13 @@ import styles from "../ContentCarousel/ContentCarousel.module.css"
 import genreMap from "../../data/genreMap"
 import tvGenreMap from "../../data/tvGenreMap"
 import Btn from "../Button/Button"
+// Composants et helpers partagés
+import { buildTrailerApiUrl, mediaTypeFromFlags } from "@/lib/media"
 
+// Ouvre le trailer YouTube via l'API interne (film/série)
 const openTrailer = async (id, mediaType = 'movie') => {
   try {
-    const typeQuery = mediaType === 'tv' ? '?type=tv' : '';
-    const response = await fetch(`/api/movies/${id}/videos${typeQuery}`, { cache: 'no-store' });
+    const response = await fetch(buildTrailerApiUrl(id, mediaType), { cache: 'no-store' });
     const data = await response.json();
     const pick = (data?.trailers || data?.allVideos || []).find(
       (video) => video?.site === "YouTube" && video?.type === "Trailer"
@@ -55,8 +57,7 @@ const openTrailer = async (id, mediaType = 'movie') => {
                   style={{ cursor: onMovieClick ? 'pointer' : 'default' }}
                 >
                   {(() => {
-                    const isSerie = movie?.media_type === 'tv' || (!!movie?.name && !movie?.title);
-                    const typeLabel = isSerie ? 'Série' : 'Film';
+                    const typeLabel = mediaTypeFromFlags(movie) === 'tv' ? 'Série' : 'Film';
                     return <div className={styles.badgeType}>{typeLabel}</div>
                   })()}
                   {movie.poster_path ? (
@@ -102,7 +103,7 @@ const openTrailer = async (id, mediaType = 'movie') => {
                             ? (movie.overview || '').slice(0,100) + " ..."
                             : (movie.overview || '')}
                     </p>
-                    <Btn className={styles.btnTrailer} onClick={() => openTrailer(movie.id, (movie?.media_type === 'tv' || (!!movie?.name && !movie?.title)) ? 'tv' : 'movie')}>Voir Trailer</Btn>
+                    <Btn className={styles.btnTrailer} onClick={() => openTrailer(movie.id, mediaTypeFromFlags(movie))}>Voir Trailer</Btn>
                   </div>
                 </div>
               ))}
