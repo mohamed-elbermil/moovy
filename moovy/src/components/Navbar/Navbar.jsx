@@ -2,10 +2,8 @@ import { useEffect, useRef, useState } from "react";
 import styles from "./Navbar.module.css";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import Btn from "../Button/Button";
 import Image from "next/image";
 import Logo from "../../assets/images/logo.svg";
-import AuthModal from "../AuthModal/AuthModal";
 import { useAuth } from "../../contexts/AuthContext";
 
 export default function Navbar() {
@@ -14,7 +12,6 @@ export default function Navbar() {
   const [query, setQuery] = useState("");
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
   const debounceRef = useRef(null);
   const abortRef = useRef(null);
   const pathname = usePathname();
@@ -189,15 +186,8 @@ export default function Navbar() {
               Déconnexion
             </button>
           </div>
-        ) : (
-          <Btn onClick={() => setIsAuthModalOpen(true)} className={styles.loginButton}>Connexion</Btn>
-        )}
+        ) : null}
       </div>
-      
-      <AuthModal 
-        isOpen={isAuthModalOpen} 
-        onClose={() => setIsAuthModalOpen(false)} 
-      />
     </nav>
   );
 }

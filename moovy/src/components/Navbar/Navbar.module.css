@@ -4,7 +4,7 @@
   top: 0;
   width: 100%;
   z-index: 9999;
-  padding: 15px 12em;
+  padding: 15px clamp(1em, 6vw, 12em);
   background: var(--color-primary-color);
   display: flex;
   align-items: center;
