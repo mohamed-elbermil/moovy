@@ -1,0 +1,38 @@
+ .hero {
+   position: relative;
+   width: 100%;
+   height: 66vh;
+   overflow: hidden;
+   background: #0d0c1f;
+   margin-bottom: 24px;
+ }
+ 
+ .iframe {
+   position: absolute;
+   top: 40%;
+   left: 50%;
+   width: 100vw;
+   height: 56.25vw; /* 9/16 * 100vw */
+   min-width: 177.78vh; /* 16/9 * 100vh */
+   min-height: 100vh;
+   transform: translate(-50%, -50%);
+   border: 0;
+   pointer-events: none;
+ }
+ 
+ .overlay {
+   position: absolute;
+   inset: 0;
+   background: linear-gradient(180deg, rgba(13,12,31,0.15) 0%, rgba(13,12,31,0.3) 50%, rgba(13,12,31,0.85) 85%, rgba(13,12,31,1) 100%);
+   pointer-events: none;
+ }
+ 
+ .placeholder {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   color: #c3b5db;
+   font-size: 14px;
+   opacity: 0.8;
+   height: 100%;
+ }

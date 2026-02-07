@@ -19,6 +19,19 @@ export default function Navbar() {
   const abortRef = useRef(null);
   const pathname = usePathname();
 
+  const handleKeyDownGlobal = (e) => {
+    if (e.key === "Escape") {
+      setIsOpen(false);
+      setQuery("");
+      setMovies([]);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("keydown", handleKeyDownGlobal);
+    return () => window.removeEventListener("keydown", handleKeyDownGlobal);
+  }, []);
+
   // Fonction pour récupérer et rediriger vers le trailer YouTube
   const handleMovieClick = async (movie) => {
     try {
@@ -100,7 +113,7 @@ export default function Navbar() {
   }, [query]);
 
   return (
-    <nav className={styles.navbar}>
+    <nav className={styles.navbar} role="navigation" aria-label="Barre de navigation principale">
       {/* Logo */}
       <div className={styles.logo}>
         <Link href="/">
@@ -109,16 +122,19 @@ export default function Navbar() {
       </div>
 
       {/* Bouton burger */}
-      <div
+      <button
+        type="button"
         className={styles.burger}
         onClick={() => setIsOpen(!isOpen)}
-        aria-label="Menu"
+        aria-label="Basculer le menu de navigation"
+        aria-controls="primary-navigation"
+        aria-expanded={isOpen}
       >
         ☰
-      </div>
+      </button>
 
       {/* Liens de navigation */}
-      <div className={`${styles.links} ${isOpen ? styles.open : ""}`}>
+      <div id="primary-navigation" className={`${styles.links} ${isOpen ? styles.open : ""}`}>
         <Link href="/">Accueil</Link>
         <Link href="/films" className={pathname?.startsWith("/films") ? styles.activeLink : undefined}>Films</Link>
         <Link href="/series" className={pathname?.startsWith("/series") ? styles.activeLink : undefined}>Séries</Link>
@@ -129,11 +145,12 @@ export default function Navbar() {
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             className={styles.searchInput}
+            aria-label="Rechercher des films"
           />
           <i className="fa-solid fa-magnifying-glass"></i>
 
           {(loading || (query && movies.length > 0)) && (
-            <div className={styles.searchMenu}>
+            <div className={styles.searchMenu} role="listbox" aria-live="polite">
           {loading && (
             <div className="message">Chargement...</div>
   )}
@@ -145,7 +162,7 @@ export default function Navbar() {
       {movies.map((movie) => (
         <li key={movie.id} onClick={() => handleMovieClick(movie)}>
           {movie.poster_path ? (
-            <img
+            <Image
               src={`https://image.tmdb.org/t/p/w92${movie.poster_path}`}
               alt={movie.title}
               width={46}

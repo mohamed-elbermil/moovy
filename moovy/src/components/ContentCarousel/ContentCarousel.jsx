@@ -7,7 +7,8 @@ import Btn from "../Button/Button"
 
 const openTrailer = async (id, mediaType = 'movie') => {
   try {
-    const response = await fetch(`/api/movies/${id}/videos`, { cache: 'no-store' });
+    const typeQuery = mediaType === 'tv' ? '?type=tv' : '';
+    const response = await fetch(`/api/movies/${id}/videos${typeQuery}`, { cache: 'no-store' });
     const data = await response.json();
     const pick = (data?.trailers || data?.allVideos || []).find(
       (video) => video?.site === "YouTube" && video?.type === "Trailer"
