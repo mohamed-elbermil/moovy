@@ -76,6 +76,31 @@
     text-align: center;
 }
 
+.rating {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.star {
+    color: #ffd700;
+    font-size: 16px;
+}
+
+.ratingBadge {
+    background: #ffffff12;
+    padding: 6px 10px;
+    border-radius: 16px;
+    font-size: 14px;
+}
+
+.ratingBadgeMuted {
+    background: transparent;
+    color: #ffffffa1;
+    font-size: 13px;
+}
+
 
 .overview {
     font-size: 14px;
@@ -142,6 +167,15 @@
         font-size: 15px;
     }
 
+    .star {
+        font-size: 14px;
+    }
+
+    .ratingBadge {
+        font-size: 12px;
+        padding: 5px 9px;
+    }
+
     .genreItem {
         font-size: 13px;
     }
@@ -162,5 +196,9 @@
     .movie img, .activeCard {
         width: 10em;
         height: 16em;
+    }
+    .ratingBadge {
+        font-size: 11px;
+        padding: 4px 8px;
     }
 }

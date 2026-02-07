@@ -80,6 +80,16 @@ const openTrailer = async (id, mediaType = 'movie') => {
                       ))}
                     </span>
                     <p className={styles.title}>{movie.title || movie.name}</p>                  
+                    {typeof movie.vote_average === 'number' ? (
+                      <div className={styles.rating}>
+                        <span className={styles.star}>★</span>
+                        <span className={styles.ratingBadge}>{(Math.round(movie.vote_average * 10) / 10).toFixed(1)} / 10</span>
+                      </div>
+                    ) : (
+                      <div className={styles.rating}>
+                        <span className={styles.ratingBadgeMuted}>Note indisponible</span>
+                      </div>
+                    )}
                     <p className={
                       (movie.overview || '').length === 0
                         ? styles.noneOverview
